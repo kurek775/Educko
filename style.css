@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: rgb(30, 117, 123);
+}
+
+.banner-text {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.919);
+	position: absolute;
+	z-index: 1;
+
+}
+
+
+
+
+.banner-text ul {
+	height: 50px;
+
+}
+.banner-text ul li {
+	display: inline-block;
+	padding: 25px 15px;
+
+	text-transform: uppercase;
+	color: rgb(30, 117, 123);
+	font-size: 1.25rem;
+}
+.banner-text ul li:hover {
+	cursor: pointer;
+}
+p{
+color: rgb(30, 117, 123);
+
+}
+h1{
+color:rgb(30, 117, 123);
+
+}
