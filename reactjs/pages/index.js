@@ -1,65 +1,56 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import React from "react";
+import styles from "../styles/Home.module.css";
+import { connectToDatabase } from "../util/mongodb";
 
-export default function Home() {
+export default function Home({ properties }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Create NEXT app</title>
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <React.Fragment>
+        <div>
+          {properties &&
+            properties.map((property) => (
+              <div>
+                <h1>{property.name}</h1>
+                <img src={property.image} alt="" />
+                <h2>{property._id}</h2>
+                <p>{property.description}</p>
+                <a href={property.listing_url}>CLICK HERE</a>
+                <h3>${property.price}</h3>
+              </div>
+            ))}
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      </React.Fragment>
     </div>
-  )
+  );
+}
+
+export async function getServerSideProps(context) {
+  const { db } = await connectToDatabase();
+  const data = await db
+    .collection("listingsAndReviews")
+    .find({})
+    .limit(20)
+    .toArray();
+  const properties = JSON.parse(JSON.stringify(data));
+  console.log(data);
+  const filtered = properties.map((property) => {
+    const price = JSON.parse(JSON.stringify(property.price));
+    return {
+      _id: property._id,
+      name: property.name,
+      image: property.images.picture_url,
+      address: property.address,
+      description: property.description,
+      listing_url: property.listing_url,
+      price: price.$numberDecimal,
+    };
+  });
+
+  return {
+    props: { properties: filtered },
+  };
 }
