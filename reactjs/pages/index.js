@@ -1,14 +1,17 @@
 import Head from "next/head";
 import React from "react";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.css"
 import { connectToDatabase } from "../util/mongodb";
+import Navbar from "./components/Navbar/Navbar";
 
 export default function Home({ properties }) {
   return (
+
     <div className={styles.container}>
       <Head>
         <title>Create NEXT app</title>
       </Head>
+            <Navbar />
       <React.Fragment>
         <div>
           {properties &&
@@ -25,6 +28,7 @@ export default function Home({ properties }) {
         </div>
       </React.Fragment>
     </div>
+
   );
 }
 
