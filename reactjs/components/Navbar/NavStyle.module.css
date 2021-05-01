@@ -1,5 +1,4 @@
 .nav {
-  padding: 1.8rem 1em;
   background-color: lightblue;
 }
 
@@ -59,7 +58,7 @@
 
 @media only screen and (max-width: 768px) {
   .hamburger {
-    padding: 1em;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,8 +69,8 @@
 
   .navList {
     position: fixed;
-    top: 8%;
-    left: -100%;
+    top: 80px;
+    left: 100%;
     flex-direction: column;
     align-items: center;
     background-color: #242424;
@@ -81,8 +80,17 @@
     transition: all 300ms ease-in-out;
   }
 
-  .navList.active {
+  .navListActive {
     left: 0%;
+    position: fixed;
+    top: 8%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #242424;
+    width: 100%;
+    height: 100%;
+    padding: 1.6rem 0;
+    transition: all 300ms ease-in-out;
   }
 
   .navItem:not(:last-child) {

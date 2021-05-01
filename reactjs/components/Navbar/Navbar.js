@@ -17,7 +17,7 @@ const Navbar = (props) => {
           <h1 className={NavStyle.logo}>
             <Link href="/">Edučko</Link>
           </h1>
-          <ul className={click ? NavStyle.navList.active : NavStyle.navList}>
+          <ul className={click ? NavStyle.navListActive : NavStyle.navList}>
             {MenuItems.map(({ id, title }) => (
               <li key={id} className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
