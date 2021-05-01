@@ -19,4 +19,8 @@ export default [
     id: 5,
     title: "Feedback",
   },
+  {
+    id: 6,
+    title: "Přihlásit se",
+  },
 ];
