@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import MenuItems from "./MenuItems";
+import Todo from "./Todo"
 import NavStyle from "./NavStyle.module.css";
 import Link from "next/link";
 
@@ -18,15 +18,23 @@ const Navbar = (props) => {
             <Link href="/">Edučko</Link>
           </h1>
           <ul className={click ? NavStyle.navListActive : NavStyle.navList}>
-            {MenuItems.map(({ id, title }) => (
-              <li key={id} className={NavStyle.navItem}>
+           
+          <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
-                  <Link href="/register_page">
-                    <button className={NavStyle.button}>{title}</button>
+                  <Link href="/reg_modal">
+                    <button className={NavStyle.button}>O nás</button>
                   </Link>
                 </div>
               </li>
-            ))}
+           
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href="/reg_modal">
+                    <button className={NavStyle.button}>Registrace</button>
+                  </Link>
+                </div>
+              </li>
+     <li><Todo></Todo></li>
           </ul>
 
           <div className={NavStyle.hamburger} onClick={clickHandler}>

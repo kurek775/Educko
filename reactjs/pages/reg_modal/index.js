@@ -1,11 +1,11 @@
-import { Fragment } from "react";
-import Head from "next/head";
+
+import classes from "./reg_modal.module.css";
+import RegisterForm from "../../components/Navbar/Register_form"
 import { useRouter } from "next/router";
+import Backdrop from "../../components/Navbar/Backdrop";
 
-import NewMeetupForm from "../../components/navbar/Register_form";
-import RegisterForm from "../../components/navbar/Register_form";
 
-function registerPage() {
+function Modalreg(){
   const router = useRouter();
 
   async function addMeetupHandler(enteredMeetupData) {
@@ -24,11 +24,12 @@ function registerPage() {
     router.push("/");
   }
 
-  return (
-    <Fragment>
-      <RegisterForm onAddMeetup={addMeetupHandler} />
-    </Fragment>
-  );
+
+    return( <div><div className={classes.modal}> 
+      <RegisterForm onAddMeetup={addMeetupHandler}></RegisterForm>
+     
+       </div></div>
+    );
 }
 
-export default registerPage;
+export default Modalreg;
