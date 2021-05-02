@@ -1,3 +1,4 @@
 use("Educko")
-db.Users.insert({"name":"Pavel"},{"class":"2"})
 
+
+db.Users.insertOne({"name":"Lukas"},{"class":"1"})

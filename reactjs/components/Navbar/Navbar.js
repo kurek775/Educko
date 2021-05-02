@@ -21,7 +21,7 @@ const Navbar = (props) => {
             {MenuItems.map(({ id, title }) => (
               <li key={id} className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
-                  <Link href="/loginPage">
+                  <Link href="/register_page">
                     <button className={NavStyle.button}>{title}</button>
                   </Link>
                 </div>
