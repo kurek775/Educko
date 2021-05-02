@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Todo from "./Todo"
 import NavStyle from "./NavStyle.module.css";
@@ -14,9 +14,9 @@ const Navbar = (props) => {
     <header>
       <nav className={NavStyle.nav}>
         <div className={NavStyle.navCenter}>
-          <h1 className={NavStyle.logo}>
-            <Link href="/">Edučko</Link>
-          </h1>
+        <h1>
+          <Link href="/"><a className={NavStyle.logo}>Edučko</a></Link>
+        </h1>
           <ul className={click ? NavStyle.navListActive : NavStyle.navList}>
            
           <li className={NavStyle.navItem}>
