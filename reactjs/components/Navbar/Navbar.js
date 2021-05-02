@@ -1,6 +1,5 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import MenuItems from "./MenuItems";
 import NavStyle from "./NavStyle.module.css";
 import Link from "next/link";
 
@@ -14,19 +13,38 @@ const Navbar = (props) => {
     <header>
       <nav className={NavStyle.nav}>
         <div className={NavStyle.navCenter}>
-          <h1 className={NavStyle.logo}>
-            <Link href="/">Edučko</Link>
-          </h1>
+        <h1>
+          <Link href="/"><a className={NavStyle.logo}>Edučko</a></Link>
+        </h1>
           <ul className={click ? NavStyle.navListActive : NavStyle.navList}>
-            {MenuItems.map(({ id, title }) => (
-              <li key={id} className={NavStyle.navItem}>
+          <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
                   <Link href="/register_page">
-                    <button className={NavStyle.button}>{title}</button>
+                    <a className={NavStyle.button}>O nás</a>
                   </Link>
                 </div>
               </li>
-            ))}
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href="/register_page">
+                    <a className={NavStyle.button}>Služby</a>
+                  </Link>
+                </div>
+              </li>
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href="/register_page">
+                    <a className={NavStyle.button}>Kontakt</a>
+                  </Link>
+                </div>
+              </li>
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href="/register_page">
+                    <a className={NavStyle.button}>Přihlášení</a>
+                  </Link>
+                </div>
+              </li>
           </ul>
 
           <div className={NavStyle.hamburger} onClick={clickHandler}>
