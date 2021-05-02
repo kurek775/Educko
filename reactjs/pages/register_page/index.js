@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import NewMeetupForm from '../../components/navbar/Register_form';
+import RegisterForm from '../../components/navbar/Register_form';
 
 
 function registerPage(){
@@ -27,7 +27,7 @@ function registerPage(){
     return (
       <Fragment>
       
-        <NewMeetupForm onAddMeetup={addMeetupHandler} />
+        <RegisterForm onAddMeetup={addMeetupHandler} />
       </Fragment>
     );
   }
