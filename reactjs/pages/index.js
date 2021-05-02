@@ -19,8 +19,9 @@ export async function getServerSideProps(context) {
   const filtered = properties.map((property) => {
     return {
       _id: property._id,
-      name: property.name,
-      heslo: property.heslo,
+      email: property.email,
+      uname: property.uname,
+      password: property.password,
     };
   });
 
