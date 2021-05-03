@@ -1,5 +1,5 @@
-
-import Loginform from '../../components/Navbar/Login_form';
+/*
+import Loginform from './Login_form';
 import classes from './Modal.module.css';
 import { useRouter } from "next/router";
 

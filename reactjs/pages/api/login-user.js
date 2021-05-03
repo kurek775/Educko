@@ -1,17 +1,17 @@
+
 import { MongoClient } from "mongodb";
 import bcrypt from "bcrypt";
 // /api/new-meetup
 // POST /api/new-meetup
 
-async function handler(req, res) {
+async function handlerLog(req, res) {
   if (req.method === "POST") {
-    const top = req.body.password;
-    const saltPass = await bcrypt.genSalt(10);
-    const secPass = await bcrypt.hash(req.body.password, saltPass)
+
+   
     const data = ({
-      uname:req.body.uname,
+     
       email:req.body.email,
-      password:secPass,
+      password:req.password,
     })
 
     const client = await MongoClient.connect(
@@ -20,9 +20,10 @@ async function handler(req, res) {
     const db = client.db();
 
     const meetupsCollection = db.collection("Users");
-
-    const result = await meetupsCollection.insertOne(data);
-    bcrypt.compare(top,data.password,(err,res) => {
+    console.log("jsi tam")
+    const result = await meetupsCollection.find(data.email)
+    console.log(result);
+    bcrypt.compare(data.password,result.password,(err,res) => {
       if (err) {
         console.error(err)
     
@@ -30,14 +31,15 @@ async function handler(req, res) {
       }
       console.log(res)
     })
-    console.log(result);
+    console.log(result.password);
 
     client.close();
-
-    res.status(201).json({ message: "User inserted!" });
+    res.status(200).json({ message: "User verified!" });
+  
 
   }
 }
 
-export default handler;
+export default handlerLog;
+
 

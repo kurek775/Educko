@@ -1,5 +1,6 @@
+import Link from "next/link";
 import {useState} from "react";
-import Modal from "./Modal";
+import Modal from "../../pages/login-page";
 import Backdrop from "./Backdrop"
 import NavStyle from "./NavStyle.module.css";
 function Todo(){
@@ -13,11 +14,10 @@ function closeModalHandler(){
         
     }
     return( <div>
-
+<Link href="/login-page">
     <div className="actions"> 
-      <button className={NavStyle.button} onClick={deleteHandler}>Přihlášení</button></div>
-   {modalIsOpen &&<Modal onCancel={closeModalHandler} onConfirm= {closeModalHandler}/>}
-   {modalIsOpen &&<Backdrop onClick={closeModalHandler}/>}
+      <a className={NavStyle.button} onClick={deleteHandler}>Přihlášení</a></div>
+</Link>
   </div>)
 }
 

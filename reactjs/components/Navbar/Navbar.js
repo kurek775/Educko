@@ -21,16 +21,16 @@ const Navbar = (props) => {
            
           <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
-                  <Link href="/reg_modal">
-                    <button className={NavStyle.button}>O nás</button>
+                  <Link href="/">
+                    <a className={NavStyle.button}>O nás</a>
                   </Link>
                 </div>
               </li>
            
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
-                  <Link href="/reg_modal">
-                    <button className={NavStyle.button}>Registrace</button>
+                  <Link href="/contacts">
+                    <a className={NavStyle.button}>Kontakty</a>
                   </Link>
                 </div>
               </li>

@@ -1,7 +1,8 @@
-
-import classes from '../Modalreg.module.css';
-import RegisterForm from "../Register_form"
+/*
+import classes from "./reg_modal.module.css";
+import RegisterForm from "./Register_form"
 import { useRouter } from "next/router";
+
 
 
 function Modalreg(){
@@ -24,9 +25,10 @@ function Modalreg(){
   }
 
 
-    return( <div className={classes.modal}>
-   <RegisterForm onAddMeetup={addMeetupHandler}></RegisterForm>
-    </div>
+    return( <div className={classes.modal}> 
+      <RegisterForm onAddMeetup={addMeetupHandler}></RegisterForm>
+     
+       </div>
     );
 }
 

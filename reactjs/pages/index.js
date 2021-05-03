@@ -13,7 +13,7 @@ export default function Home() {
 export async function getServerSideProps(context) {
   const { db } = await connectToDatabase();
   const data = await db.collection("Users").find({}).toArray();
-  console.log(data);
+
   const properties = JSON.parse(JSON.stringify(data));
 
   const filtered = properties.map((property) => {

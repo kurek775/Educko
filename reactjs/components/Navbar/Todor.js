@@ -16,11 +16,16 @@ function closeModalHandler(){
     }
     return( <div>
 
-    
-      <div className = {classes.linktoreg}onClick={deleteHandler}>Ještě u nás nemáte učet ?</div>
-   {modalIsOpen &&<Modalreg  onConfirm= {closeModalHandler}/>}
+    <Link href="/reg_modal">
+    <div className = {classes.linktoreg}  onClick={deleteHandler}>Ještě u nás nemáte učet </div>
+
+    </Link>
 
   </div>)
+  
+    
+
+
 }
 
 export default Todor;

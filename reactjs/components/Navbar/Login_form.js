@@ -1,10 +1,10 @@
 
-import classes from './Modal.module.css';
+import classes from './Login_form.module.css';
 import {useRef} from "react";
 
 import Todor from './Todor';
 
-function Modal(props){
+function Loginform(props){
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
 
@@ -28,7 +28,7 @@ props.onConfirm();
     
         props.onAddMeetup(UData);
       }
-    return( <div className={classes.modal}>
+    return( 
     <form  className={classes.form} onSubmit={submitHandler}>
     <div className={classes.control}>
           <label htmlFor='email'>Email</label>
@@ -39,9 +39,9 @@ props.onConfirm();
           <input type='text' required id='password' ref={passwordInputRef} />
         </div>
         <ul>
-        <li><Todor></Todor></li>
+        <li ><Todor></Todor></li>
 <li><div className={classes.actions}>
-        <button onClick={confirmHandler}>Přihlásit</button>
+        <button >Přihlásit</button>
         </div></li>
         </ul>
         
@@ -49,9 +49,9 @@ props.onConfirm();
     </form>
 
    
-    </div>
+  
     );
 }
 
-export default Modal;
+export default Loginform;
 
