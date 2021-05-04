@@ -2,7 +2,7 @@
 import classes from './Login_form.module.css';
 import {useRef} from "react";
 
-import Todor from './Todor';
+import Register_link from './Register_link';
 
 function Loginform(props){
     const emailInputRef = useRef();
@@ -39,7 +39,7 @@ props.onConfirm();
           <input type='text' required id='password' ref={passwordInputRef} />
         </div>
         <ul>
-        <li ><Todor></Todor></li>
+        <li ><Register_link></Register_link></li>
 <li><div className={classes.actions}>
         <button >Přihlásit</button>
         </div></li>

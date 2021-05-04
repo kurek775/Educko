@@ -13,6 +13,7 @@ async function handlerLog(req, res) {
       email:req.body.email,
       password:req.password,
     })
+    
 
     const client = await MongoClient.connect(
       "mongodb+srv://dbEducko:Rs5ZnltffS0Bh22L@educko.h5stn.mongodb.net/Educko?retryWrites=true&w=majority"
@@ -20,10 +21,17 @@ async function handlerLog(req, res) {
     const db = client.db();
 
     const meetupsCollection = db.collection("Users");
-    console.log("jsi tam")
-    const result = await meetupsCollection.find(data.email)
-    console.log(result);
-    bcrypt.compare(data.password,result.password,(err,res) => {
+   
+
+ 
+  const top = (await person).toString();
+  const selectedMeetup = await meetupsCollection.findOne({
+    email: req.body.password,})
+ 
+    console.log(selectedMeetup);
+    console.log(req.body.email);
+
+    bcrypt.compare(req.body.password,person.password,(err,res) => {
       if (err) {
         console.error(err)
     
@@ -31,7 +39,7 @@ async function handlerLog(req, res) {
       }
       console.log(res)
     })
-    console.log(result.password);
+    console.log("top2");
 
     client.close();
     res.status(200).json({ message: "User verified!" });

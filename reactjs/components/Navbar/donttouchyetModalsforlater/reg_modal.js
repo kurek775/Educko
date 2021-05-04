@@ -32,4 +32,4 @@ function Modalreg(){
     );
 }
 
-export default Modalreg;
+export default Modalreg;*/

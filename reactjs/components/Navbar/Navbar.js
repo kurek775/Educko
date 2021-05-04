@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Todo from "./Todo"
+
 import NavStyle from "./NavStyle.module.css";
 import Link from "next/link";
+import Login_button from "./Login_button";
 
 const Navbar = (props) => {
   const [click, setClick] = useState();
@@ -34,7 +35,7 @@ const Navbar = (props) => {
                   </Link>
                 </div>
               </li>
-     <li><Todo></Todo></li>
+     <li><Login_button></Login_button></li>
           </ul>
 
           <div className={NavStyle.hamburger} onClick={clickHandler}>
