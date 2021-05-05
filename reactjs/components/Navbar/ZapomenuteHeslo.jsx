@@ -1,14 +1,14 @@
 import Link from "next/link";
 import classes from "./Register_link.module.css";
 
-function Register_link() {
+function ZapomenuteHeslo() {
   return (
     <div>
       <Link href="/reg_modal">
-        <div className={classes.linktoreg}>Ještě u nás nemáte učet </div>
+        <div className={classes.linktoreg}>Zapomněli jste heslo?</div>
       </Link>
     </div>
   );
 }
 
-export default Register_link;
+export default ZapomenuteHeslo;

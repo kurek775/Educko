@@ -30,4 +30,9 @@ ul {
 .center {
   margin: auto;
   text-align: center;
+  padding-top: 20em;
+}
+
+.red {
+  color: red;
 }

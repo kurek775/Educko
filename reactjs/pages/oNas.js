@@ -1,9 +1,9 @@
-import classes from "../../styles/onasAKontakty.module.css";
+import classes from "../styles/onasAKontakty.module.css";
 
-function contacts() {
+function oNasPage() {
   return (
     <div className={classes.div}>
-      <h1>Kontakty</h1>
+      <h1>O nás</h1>
       <p className={classes.p}>
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras
         elementum. Nullam dapibus fermentum ipsum. Temporibus autem quibusdam et
@@ -24,7 +24,24 @@ function contacts() {
         placeat facere possimus, omnis voluptas assumenda est, omnis dolor
         repellendus. Aenean fermentum risus id tortor.
       </p>
+
+      <p className={classes.p}>
+        Sed elit dui, pellentesque a, faucibus vel, interdum nec, diam. Maecenas
+        sollicitudin. Etiam dictum tincidunt diam. Pellentesque habitant morbi
+        tristique senectus et netus et malesuada fames ac turpis egestas. Morbi
+        leo mi, nonummy eget tristique non, rhoncus non leo. Maecenas libero.
+        Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Lorem
+        ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam erat
+        volutpat. Fusce consectetuer risus a nunc. Cum sociis natoque penatibus
+        et magnis dis parturient montes, nascetur ridiculus mus. Nullam sit amet
+        magna in magna gravida vehicula. Fusce tellus. Sed ac dolor sit amet
+        purus malesuada congue. Pellentesque pretium lectus id turpis. Donec
+        vitae arcu. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum. In rutrum.
+        Integer tempor.
+      </p>
     </div>
   );
 }
-export default contacts;
+
+export default oNasPage;
