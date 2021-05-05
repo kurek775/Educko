@@ -51,8 +51,10 @@ const Navbar = (props) => {
               </div>
             </li>
             {!session && !session && (
-              <li>
-                <Login_button></Login_button>
+              <li className={NavStyle.navItem}>
+                 <div className={NavStyle.navLink}>
+                    <Login_button></Login_button>
+                 </div>
               </li>
             )}
             {session && (
