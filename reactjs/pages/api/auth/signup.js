@@ -13,7 +13,8 @@ async function handler(req, res) {
     !password ||
     password.trim().length < 7 ||
     !name ||
-    name.trim().length < 4
+    name.trim().length < 4 ||
+    name === "admin"
   ) {
     res.status(422).json({
       message: "Neplatný vstup - heslo by mělo mít minimálně 7 znaků",

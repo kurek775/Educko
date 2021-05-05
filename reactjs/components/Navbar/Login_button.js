@@ -5,8 +5,8 @@ function Login_button() {
   return (
     <div>
       <Link href="/login-page">
-        <div className="actions">
-          <a className={NavStyle.button}>Přihlášení</a>
+        <div>
+          <button className={NavStyle.button}>Přihlášení</button>
         </div>
       </Link>
     </div>

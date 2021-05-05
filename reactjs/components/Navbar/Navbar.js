@@ -64,6 +64,15 @@ const Navbar = (props) => {
                 </div>
               </li>
             )}
+            {session && session.user.name === "admin" && (
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href="/vytvareni-schuzky">
+                    <a className={NavStyle.button}>Vytvoření schůzky</a>
+                  </Link>
+                </div>
+              </li>
+            )}
             {session && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
