@@ -23,7 +23,6 @@ function Modalreg() {
       // throw new Error(data.message || "Stala se nejaka chyba");
     }
     console.log(data);
-
     router.replace("/");
   }
 

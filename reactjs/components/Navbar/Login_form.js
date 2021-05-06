@@ -3,7 +3,8 @@ import { useRef } from "react";
 import Link from "next/link";
 
 import Register_link from "./Register_link";
-import ZapomenuteHeslo from "./ZapomenuteHeslo";
+import ForgottenPassword from "../../pages/zapomenute-heslo";
+import ZapomenuteHeslo_link from "./Zapomenute_link";
 
 function Loginform(props) {
   const emailInputRef = useRef();
@@ -12,9 +13,8 @@ function Loginform(props) {
   function confirmHandler() {
     props.onConfirm();
   }
-  function submitHandler(event) {
+  async function submitHandler(event) {
     event.preventDefault();
-
     const enteredPassword = passwordInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
 
@@ -40,7 +40,7 @@ function Loginform(props) {
           <Register_link></Register_link>
         </li>
         <li>
-          <ZapomenuteHeslo></ZapomenuteHeslo>
+          <ZapomenuteHeslo_link></ZapomenuteHeslo_link>
         </li>
         <li>
           <div className={classes.actions}>
