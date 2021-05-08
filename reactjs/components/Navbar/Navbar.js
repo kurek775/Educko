@@ -9,7 +9,7 @@ import Login_button from "./Login_button";
 const Navbar = (props) => {
   const [click, setClick] = useState();
   const [session, loading] = useSession();
-  // const { name, email } = session.user;
+ // const { name, email } = session.user;
 
   const clickHandler = () => {
     setClick(!click);
@@ -47,6 +47,13 @@ const Navbar = (props) => {
               <div className={NavStyle.navLink}>
                 <Link href="/contacts">
                   <a className={NavStyle.button}>Kontakty</a>
+                </Link>
+              </div>
+            </li>
+            <li className={NavStyle.navItem}>
+              <div className={NavStyle.navLink}>
+                <Link href="/reservesystem">
+                  <a className={NavStyle.button}>Rezervacni system</a>
                 </Link>
               </div>
             </li>
