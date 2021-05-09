@@ -1,0 +1,31 @@
+.Card {
+  border-radius: 25px;
+  padding: 16px;
+  background-image: url("/wave.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  max-width: 350px;
+  box-shadow: 0 0 1.2rem;
+}
+.Image {
+  padding: 1rem;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 0 5px;
+  z-index: 1;
+}
+.Img {
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  padding: 10px 0;
+}
+
+.Name {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.Content {
+  text-align: justify;
+  font-size: 1.1rem;
+}
