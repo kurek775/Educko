@@ -1,0 +1,46 @@
+.modal {
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: white;
+  padding: 1rem;
+  text-align: center;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.actions {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  background-color: #002677;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #0e43a55d;
+  border-color: #0c043a;
+}
+
+.headline {
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}

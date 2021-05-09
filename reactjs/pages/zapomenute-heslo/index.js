@@ -8,6 +8,7 @@ function ForgottenPassword() {
   const [error, setError] = useState(false);
 
   async function addMeetupHandler(enteredMeetupData) {
+    console.log(enteredMeetupData);
     const response = await fetch("/api/user/poslaniMailuHeslo", {
       method: "POST",
       body: JSON.stringify(enteredMeetupData),
@@ -19,7 +20,6 @@ function ForgottenPassword() {
     if (!response.ok) {
       setError(true);
       return;
-      // throw new Error(data.message || "Stala se nejaka chyba");
     }
     console.log(data);
     router.replace("/");

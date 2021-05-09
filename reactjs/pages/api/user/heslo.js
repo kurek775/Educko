@@ -14,11 +14,10 @@ async function handler(req, res) {
     return;
   }
   const client = await connectToDatabase();
-  // const getMail = client.db().collection("Users").findOne({ _id: id });
   const userCollection = client.db().collection("Users");
+  const lectorCollection = client.db().collection("Lectores");
   const user = await userCollection.findOne({ _id: newId });
-  // const { email } = user;
-  // console.log(email);
+  const lector = await lectorCollection.findOne({ _id: newId });
   if (user) {
     const hashedPassword = await hashPassword(password);
     const result = await userCollection.updateOne(
@@ -28,14 +27,30 @@ async function handler(req, res) {
     client.close();
     res.status(200).json({ message: "Heslo bylo zmeneno" });
     return;
-  } else {
+  } else if (lector) {
+    const hashedPassword = await hashPassword(password);
+    const result = await lectorCollection.updateOne(
+      { _id: newId },
+      { $set: { password: hashedPassword } }
+    );
+    client.close();
+    res.status(200).json({ message: "Heslo bylo zmeneno" });
+  } else if (!user) {
     res.status(422).json({
       message: "Uzivatel s timto id neexistuje ",
       id: newId,
       text: id,
     });
     client.close();
+    return;
+  } else if (!lector) {
+    res.status(422).json({
+      message: "Uzivatel s timto id neexistuje ",
+      id: newId,
+      text: id,
+    });
+    client.close();
+    return;
   }
 }
-
 export default handler;

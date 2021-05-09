@@ -1,4 +1,4 @@
-import classes from "../../styles/onasAKontakty.module.css";
+import classes from "./kontak.module.css";
 
 function contacts() {
   return (

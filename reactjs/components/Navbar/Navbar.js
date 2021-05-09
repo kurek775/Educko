@@ -9,7 +9,7 @@ import Login_button from "./Login_button";
 const Navbar = (props) => {
   const [click, setClick] = useState();
   const [session, loading] = useSession();
- // const { name, email } = session.user;
+  // const { name, email } = session.user;
 
   const clickHandler = () => {
     setClick(!click);
@@ -50,18 +50,20 @@ const Navbar = (props) => {
                 </Link>
               </div>
             </li>
-            <li className={NavStyle.navItem}>
-              <div className={NavStyle.navLink}>
-                <Link href="/reservesystem">
-                  <a className={NavStyle.button}>Rezervacni system</a>
-                </Link>
-              </div>
-            </li>
-            {!session && !session && (
+            {session && !session.user.name === "admin" && (
               <li className={NavStyle.navItem}>
-                 <div className={NavStyle.navLink}>
-                    <Login_button></Login_button>
-                 </div>
+                <div className={NavStyle.navLink}>
+                  <Link href="/reservesystem">
+                    <a className={NavStyle.button}>Rezervacni system</a>
+                  </Link>
+                </div>
+              </li>
+            )}
+            {!session && (
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Login_button></Login_button>
+                </div>
               </li>
             )}
             {session && (
@@ -76,8 +78,26 @@ const Navbar = (props) => {
             {session && session.user.name === "admin" && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
-                  <Link href="/vytvareni-schuzky">
-                    <a className={NavStyle.button}>Vytvoření schůzky</a>
+                  <Link href="/vytvareni-lektora">
+                    <a className={NavStyle.button}>Vytvoření lektora</a>
+                  </Link>
+                </div>
+              </li>
+            )}
+            {session && session.user.name === "admin" && (
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href="/">
+                    <a className={NavStyle.button}>Vytvoření předmětu</a>
+                  </Link>
+                </div>
+              </li>
+            )}
+            {session && session.user.name === "admin" && (
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href="/seznam-lektoru">
+                    <a className={NavStyle.button}>Seznam lektorů</a>
                   </Link>
                 </div>
               </li>

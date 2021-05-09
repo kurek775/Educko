@@ -11,26 +11,48 @@ export default NextAuth({
     Providers.Credentials({
       async authorize(credentials) {
         const client = await connectToDatabase();
+
         const userCollection = client.db().collection("Users");
+        const lectorCollection = client.db().collection("Lectores");
+
         const user = await userCollection.findOne({
           email: credentials.email,
         });
-        if (!user) {
+
+        const lector = await lectorCollection.findOne({
+          email: credentials.email,
+        });
+        if (lector) {
+          const isValid = await verifyPassword(
+            credentials.password,
+            lector.password
+          );
+
+          if (!isValid) {
+            client.close();
+            throw new Error("Nemohl si byt prihlasen");
+          }
+          client.close();
+          return { email: lector.email, name: lector.name };
+        } else if (user) {
+          const isValid = await verifyPassword(
+            credentials.password,
+            user.password
+          );
+
+          if (!isValid) {
+            client.close();
+            throw new Error("Nemohl si byt prihlasen");
+          }
+          client.close();
+          return { email: user.email, name: user.name };
+        } else if (!user) {
           client.close();
           throw new Error("Uživatel nenašen");
-        }
-
-        const isValid = await verifyPassword(
-          credentials.password,
-          user.password
-        );
-
-        if (!isValid) {
+        } else if (!lector) {
           client.close();
-          throw new Error("Nemohl si byt prihlasen");
+          throw new Error("Lektor nenalezen");
         }
-        client.close();
-        return { email: user.email, name: user.name };
       },
     }),
   ],
