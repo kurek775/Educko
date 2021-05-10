@@ -1,6 +1,7 @@
 import { connectToDatabase } from "../../helpers/db";
 import classes from "./seznamlektoru.module.css";
-import Card from "../../components/ui/Card";
+import Link from "next/link";
+import { getSession } from "next-auth/client";
 
 function SeznamLektoru({ lectores }) {
   return (
@@ -12,7 +13,9 @@ function SeznamLektoru({ lectores }) {
             <h1>{lector.name}</h1>
             <p>{lector.email}</p>
             <div className={classes.actions}>
-              <button>Edit</button>
+              <Link href={"seznam-lektoru/" + lector._id}>
+                <button>Detail</button>
+              </Link>
             </div>
           </li>
         ))}
@@ -21,18 +24,28 @@ function SeznamLektoru({ lectores }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
   const client = await connectToDatabase();
   const lectoresCollection = await client
     .db()
     .collection("Lectores")
     .find({})
     .toArray();
-  return {
-    props: {
-      lectores: JSON.parse(JSON.stringify(lectoresCollection)),
-    },
-  };
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login-page",
+        permanent: false,
+      },
+    };
+  } else {
+    return {
+      props: {
+        lectores: JSON.parse(JSON.stringify(lectoresCollection)),
+      },
+    };
+  }
 }
 
 export default SeznamLektoru;
