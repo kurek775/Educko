@@ -2,10 +2,34 @@ import { connectToDatabase } from "../../helpers/db";
 import { Fragment } from "react";
 import { ObjectID } from "bson";
 import { useSession } from "next-auth/client";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 function LektorDetail(props) {
   const [session, loading] = useSession();
-  console.log(session);
+  const router = useRouter();
+
+  async function deleteHandler(event) {
+    const UData = {
+      name: props.lektor.name,
+      email: props.lektor.email,
+    };
+    event.preventDefault();
+    const response = await fetch("/api/lectors/deleteLector", {
+      method: "DELETE",
+      body: JSON.stringify(UData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      return;
+    }
+    console.log(data);
+    router.replace("/");
+  }
+
   if (loading) {
     return <div>Loading...</div>;
   } else {
@@ -16,7 +40,14 @@ function LektorDetail(props) {
           <p>{props.lektor.email}</p>
           <p>PREDMETY</p>
         </div>
-        {session.user.name === "admin" && <button>Smazat lektora</button>}
+        {session.user.name === "admin" && (
+          <button onClick={deleteHandler}>Smazat lektora</button>
+        )}
+        {session.user.name === "admin" && (
+          <Link href={"/seznam-lektoru/uprava-lektora/" + props.lektor._id}>
+            <button>Upravit lektora</button>
+          </Link>
+        )}
       </Fragment>
     );
   }
