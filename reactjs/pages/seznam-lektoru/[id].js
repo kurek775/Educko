@@ -39,6 +39,7 @@ function LektorDetail(props) {
           <h1>{props.lektor.name}</h1>
           <p>{props.lektor.email}</p>
           <p>PREDMETY</p>
+          {/* <p>{props.lektor.subject}</p> */}
         </div>
         {session.user.name === "admin" && (
           <button onClick={deleteHandler}>Smazat lektora</button>
@@ -60,6 +61,7 @@ export async function getStaticProps({ params }) {
     .db()
     .collection("Lectores")
     .findOne({ _id: id });
+  console.log(lektorsData);
   return {
     props: {
       lektor: JSON.parse(JSON.stringify(lektorsData)),

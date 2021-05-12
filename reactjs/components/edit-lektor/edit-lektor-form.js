@@ -5,15 +5,21 @@ import classes from "./edit-lektor-form.module.css";
 function EditLektorForm(props) {
   const nameInputRef = useRef();
   const emailInputRef = useRef();
+  const subjectInputRef = useRef([]);
+
+  console.log(subjectInputRef);
   function submitHandler(event) {
     event.preventDefault();
     const enteredID = props.id;
     const enteredName = nameInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
+    const enteredSubject = subjectInputRef.current.value;
+    console.log(enteredSubject);
     const LData = {
       id: enteredID,
       name: enteredName,
       email: enteredEmail,
+      subject: enteredSubject,
     };
     props.onEditLektor(LData);
   }
@@ -41,6 +47,20 @@ function EditLektorForm(props) {
             defaultValue={props.email}
             ref={emailInputRef}
           />
+        </div>
+        <div>
+          {props.subject.map((sub) => (
+            <div key={sub._id}>
+              <input
+                type="checkbox"
+                id={sub._id}
+                name={sub._id}
+                defaultValue=""
+                ref={subjectInputRef}
+              />
+              <label htmlFor={sub._id}>{sub.predmet}</label>
+            </div>
+          ))}
         </div>
 
         <div className={classes.actions}>

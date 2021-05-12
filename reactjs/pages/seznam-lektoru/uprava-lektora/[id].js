@@ -32,6 +32,7 @@ function EditLektor(props) {
         name={props.lektor.name}
         email={props.lektor.email}
         id={props.lektor._id}
+        subject={props.subjects}
       ></EditLektorForm>
       {error && <p>Email je zadán špatně</p>}
     </div>
@@ -45,9 +46,16 @@ export async function getServerSideProps({ params }) {
     .db()
     .collection("Lectores")
     .findOne({ _id: newId });
+  const subjectCollection = await client
+    .db()
+    .collection("Subject")
+    .find({})
+    .toArray();
+
   return {
     props: {
       lektor: JSON.parse(JSON.stringify(lectorsData)),
+      subjects: JSON.parse(JSON.stringify(subjectCollection)),
     },
   };
 }

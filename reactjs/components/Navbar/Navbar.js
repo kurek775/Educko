@@ -87,7 +87,7 @@ const Navbar = (props) => {
             {session && session.user.name === "admin" && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
-                  <Link href="/">
+                  <Link href="/vytvareni-predmetu">
                     <a className={NavStyle.button}>Vytvoření předmětu</a>
                   </Link>
                 </div>

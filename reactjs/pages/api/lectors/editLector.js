@@ -6,7 +6,7 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { email, name, id } = data;
+  const { email, name, id, subject } = data;
   const newId = new ObjectID(id);
   const newEmail = email;
   const newName = name;
@@ -17,12 +17,13 @@ async function handler(req, res) {
 
   const result = await lectoresCollection.updateOne(
     { _id: newId },
-    { $set: { email: newEmail, name: newName } }
+    { $set: { email: newEmail, name: newName, subject: [subject] } }
   );
   res.status(201).json({
     message: "Změna proběhla úspěšně",
     name: newName,
     email: newEmail,
+    subject: subject,
   });
   client.close();
 }
