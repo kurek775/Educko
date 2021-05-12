@@ -50,7 +50,7 @@ const Navbar = (props) => {
                 </Link>
               </div>
             </li>
-            {session && !session.user.name === "admin" && (
+         
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
                   <Link href="/reservesystem">
@@ -58,7 +58,7 @@ const Navbar = (props) => {
                   </Link>
                 </div>
               </li>
-            )}
+           
             {!session && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
