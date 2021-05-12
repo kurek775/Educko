@@ -29,8 +29,9 @@ function VytvareniLektora(props) {
 
         <div className={classes.control}>
           <label htmlFor="email">Email</label>
-          <input type="text" required id="email" ref={emailInputRef} />
+          <input type="email" required id="email" ref={emailInputRef} />
         </div>
+
         <div className={classes.control}>
           <label htmlFor="password">Heslo</label>
           <input
