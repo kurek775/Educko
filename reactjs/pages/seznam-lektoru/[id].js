@@ -39,7 +39,13 @@ function LektorDetail(props) {
           <h1>{props.lektor.name}</h1>
           <p>{props.lektor.email}</p>
           <p>PREDMETY</p>
-          {/* <p>{props.lektor.subject}</p> */}
+          <div>
+            {props.lektor.subject.map((sub) => (
+              <div key={sub.id}>
+                <p>{sub.predmet}</p>
+              </div>
+            ))}
+          </div>
         </div>
         {session.user.name === "admin" && (
           <button onClick={deleteHandler}>Smazat lektora</button>

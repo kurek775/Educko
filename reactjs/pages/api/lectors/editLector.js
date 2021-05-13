@@ -17,7 +17,7 @@ async function handler(req, res) {
 
   const result = await lectoresCollection.updateOne(
     { _id: newId },
-    { $set: { email: newEmail, name: newName, subject: [subject] } }
+    { $set: { email: newEmail, name: newName, subject: subject } }
   );
   res.status(201).json({
     message: "Změna proběhla úspěšně",

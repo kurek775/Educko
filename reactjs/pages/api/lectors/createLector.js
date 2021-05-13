@@ -37,6 +37,7 @@ async function handler(req, res) {
     email: email,
     password: hashedPassword,
     name: name,
+    subject: [],
   });
   res.status(201).json({ message: "Lektor byl vytvořen" });
   client.close();

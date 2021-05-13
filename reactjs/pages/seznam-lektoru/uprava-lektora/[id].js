@@ -32,6 +32,7 @@ function EditLektor(props) {
         name={props.lektor.name}
         email={props.lektor.email}
         id={props.lektor._id}
+        predmety={props.lektor.subject}
         subject={props.subjects}
       ></EditLektorForm>
       {error && <p>Email je zadán špatně</p>}

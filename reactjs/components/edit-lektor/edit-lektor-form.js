@@ -1,20 +1,30 @@
 import Card from "../ui/Card";
-import { useRef } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import classes from "./edit-lektor-form.module.css";
 
 function EditLektorForm(props) {
   const nameInputRef = useRef();
   const emailInputRef = useRef();
   const subjectInputRef = useRef([]);
+  const [selected, setSelected] = useState([]);
 
-  console.log(subjectInputRef);
+  const addSubject = (_id, predmet) => {
+    setSelected([
+      ...selected,
+      {
+        id: _id,
+        predmet: predmet,
+      },
+    ]);
+  };
+
+  // console.log(selected);
   function submitHandler(event) {
     event.preventDefault();
     const enteredID = props.id;
     const enteredName = nameInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
-    const enteredSubject = subjectInputRef.current.value;
-    console.log(enteredSubject);
+    const enteredSubject = selected;
     const LData = {
       id: enteredID,
       name: enteredName,
@@ -49,14 +59,13 @@ function EditLektorForm(props) {
           />
         </div>
         <div>
-          {props.subject.map((sub) => (
+          {props.subject.map((sub, i) => (
             <div key={sub._id}>
               <input
                 type="checkbox"
                 id={sub._id}
-                name={sub._id}
-                defaultValue=""
-                ref={subjectInputRef}
+                value={sub.predmet}
+                onChange={() => addSubject(sub._id, sub.predmet)}
               />
               <label htmlFor={sub._id}>{sub.predmet}</label>
             </div>
@@ -67,6 +76,12 @@ function EditLektorForm(props) {
           <button>Uložit změny</button>
         </div>
       </form>
+      <h2>Predmety ktere uci tento lektor</h2>
+      {props.predmety.map((pred) => (
+        <div key={pred.id}>
+          <p>{pred.predmet}</p>
+        </div>
+      ))}
     </Card>
   );
 }
