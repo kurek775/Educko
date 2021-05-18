@@ -1,6 +1,6 @@
 import Layout from "../components/Navbar/layout";
 import "../styles/Global.css";
-import { Provider } from "next-auth/client";
+import { getSession, Provider } from "next-auth/client";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
@@ -16,5 +16,4 @@ function MyApp({ Component, pageProps }) {
     </Provider>
   );
 }
-
 export default MyApp;

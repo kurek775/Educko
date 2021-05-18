@@ -9,8 +9,6 @@ import Login_button from "./Login_button";
 const Navbar = (props) => {
   const [click, setClick] = useState();
   const [session, loading] = useSession();
-  // const { name, email } = session.user;
-
   const clickHandler = () => {
     setClick(!click);
   };
@@ -50,7 +48,8 @@ const Navbar = (props) => {
                 </Link>
               </div>
             </li>
-         
+
+            {session && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
                   <Link href="/reservesystem">
@@ -58,7 +57,7 @@ const Navbar = (props) => {
                   </Link>
                 </div>
               </li>
-           
+            )}
             {!session && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
@@ -89,6 +88,24 @@ const Navbar = (props) => {
                 <div className={NavStyle.navLink}>
                   <Link href="/vytvareni-predmetu">
                     <a className={NavStyle.button}>Vytvoření předmětu</a>
+                  </Link>
+                </div>
+              </li>
+            )}
+            {session && session.user.image === "lector" && (
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href={"/vytvoreni-hodiny"}>
+                    <a className={NavStyle.button}>Vytvoreni hodiny</a>
+                  </Link>
+                </div>
+              </li>
+            )}
+            {session && session.user.image === "user" && (
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href={"/prihlaseni-hodiny"}>
+                    <a className={NavStyle.button}>Prihlaseni k hodine</a>
                   </Link>
                 </div>
               </li>
