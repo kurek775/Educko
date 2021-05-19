@@ -21,6 +21,7 @@ async function handler(req, res) {
     popis: popis,
     hodina: hodina,
     kapacita: 0,
+    zapsan: [],
   });
   if (!result) {
     res.status(422).json({ message: "Nekde se stala chyba" });

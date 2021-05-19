@@ -16,16 +16,16 @@ async function handler(req, res) {
   const result = await reservationCollection.updateOne(
     { _id: newId },
     {
-      $push: {
+      $pull: {
         zapsan: { uzivatel: email },
       },
       $inc: {
-        kapacita: 1,
+        kapacita: -1,
       },
     }
   );
   res.status(201).json({
-    message: "Byl jste zapsan k hodine",
+    message: "Odhlasil jste se z hodiny",
     email: email,
     id: newId,
   });

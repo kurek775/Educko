@@ -1,19 +1,38 @@
 import classes from "./prihlaseni.module.css";
 import { useRef } from "react";
+import { useSession } from "next-auth/client";
 
 function SignInForm(props) {
-  const idReservaceRef = useRef();
-  console.log(idReservaceRef);
+  const [session, loading] = useSession();
+  console.log(props.reservation.map((prop) => console.log(prop)));
   const maximalniKapacita = 20;
   let userEmail = "";
   props.user.map((prop) => (userEmail = prop.email));
-  console.log(userEmail);
-  async function prihlasitHandler(event) {
-    event.preventDefault();
-    const EnteredMail = userMail;
-  }
+  async function prihlasitHandler(resID) {
+    const enteredEmail = userEmail;
+    const enteredID = resID;
 
-  // ID HODINY ZAJISTIT
+    const SRData = {
+      email: enteredEmail,
+      id: enteredID,
+    };
+
+    props.onSignReservation(SRData);
+  }
+  async function odhlasitHandler(resID) {
+    const enteredEmail = userEmail;
+    const enteredID = resID;
+
+    const SRData = {
+      email: enteredEmail,
+      id: enteredID,
+    };
+
+    props.onSignOutReservation(SRData);
+  }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
   return (
     <div>
       <h1 className={classes.headline}>Seznam planovanych hodin</h1>
@@ -27,8 +46,28 @@ function SignInForm(props) {
               {maximalniKapacita}/{prop.kapacita}
             </p>
             <p>{prop.popis}</p>
+            {/* OPRAVIT TLACITKA - ZOBRAZUJOU SE BLBE */}
             <div className={classes.actions}>
-              <button onClick={prihlasitHandler}>Prihlasit se</button>
+              {/* {prop.zapsan.length < 20 && (
+                <button onClick={() => prihlasitHandler(prop._id)}>
+                  Prihlasit se
+                </button>
+              )} */}
+              {prop.zapsan.map((p) => (
+                <div key={p.uzivatel}>
+                  {p.uzivatel === session.user.email && (
+                    <button onClick={() => odhlasitHandler(prop._id)}>
+                      Odhlasit se
+                    </button>
+                  )}
+
+                  {p.uzivatel !== session.user.email && (
+                    <button onClick={() => prihlasitHandler(prop._id)}>
+                      Prihlasit se
+                    </button>
+                  )}
+                </div>
+              ))}
             </div>
           </li>
         ))}
