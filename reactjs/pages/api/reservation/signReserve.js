@@ -6,7 +6,7 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { email, id } = data;
+  const { email, id, name } = data;
   const newId = new ObjectID(id);
 
   const client = await connectToDatabase();
@@ -17,7 +17,7 @@ async function handler(req, res) {
     { _id: newId },
     {
       $push: {
-        zapsan: { uzivatel: email },
+        zapsan: { uzivatel: email, jmeno: name },
       },
       $inc: {
         kapacita: 1,

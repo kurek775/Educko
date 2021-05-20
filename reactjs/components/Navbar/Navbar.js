@@ -16,6 +16,9 @@ const Navbar = (props) => {
   function logoutHandler() {
     signOut();
   }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
   return (
     <header>
       <nav className={NavStyle.nav}>
@@ -101,7 +104,7 @@ const Navbar = (props) => {
                 </div>
               </li>
             )}
-            {session && session.user.image === "user" && (
+            {session && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
                   <Link href={"/prihlaseni-hodiny"}>

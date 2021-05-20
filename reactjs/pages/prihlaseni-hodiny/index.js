@@ -35,11 +35,27 @@ function SingToLecture(props) {
     }
     router.replace("/prihlaseni-hodiny");
   }
+  async function startLecture(enteredReservation) {
+    const response = await fetch("/api/reservation/startLecture", {
+      method: "POST",
+      body: JSON.stringify(enteredReservation),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      setError(true);
+      return;
+    }
+    router.replace("/prihlaseni-hodiny");
+  }
   return (
     <div>
       <SignInForm
         onSignReservation={sendReservationHandler}
         onSignOutReservation={removeReservationHandler}
+        onStartLecture={startLecture}
         reservation={props.reservation}
         user={props.user}
       />
