@@ -1,4 +1,12 @@
+import {
+  Inject,
+  ScheduleComponent,
+  WorkWeek,
+  ViewsDirective,
+  ViewDirective,
+} from "@syncfusion/ej2-react-schedule";
 
+<<<<<<< HEAD
 import { Inject,ScheduleComponent,WorkWeek,ViewsDirective, ViewDirective } from "@syncfusion/ej2-react-schedule";
 
 function reservesystem (){
@@ -40,3 +48,17 @@ function reservesystem (){
 
 export default reservesystem;
 
+=======
+function reservesystem() {
+  return (
+    <ScheduleComponent timeFormat="HH:mm">
+      <Inject services={[WorkWeek]}></Inject>
+      <ViewsDirective>
+        <ViewDirective option="WorkWeek" />
+      </ViewsDirective>
+    </ScheduleComponent>
+  );
+}
+
+export default reservesystem;
+>>>>>>> 31cca41467a59adae8002fd79425df421b133878

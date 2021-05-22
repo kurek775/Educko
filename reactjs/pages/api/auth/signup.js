@@ -23,7 +23,7 @@ async function handler(req, res) {
   }
   const client = await connectToDatabase();
   const db = client.db();
-
+  const user = "user";
   const existingUser = await db.collection("Users").findOne({ email: email });
   if (existingUser) {
     res.status(422).json({ message: "Uživatel s tímto emailem již existuje" });
@@ -35,6 +35,7 @@ async function handler(req, res) {
     email: email,
     password: hashedPassword,
     name: name,
+    role: user,
   });
   res.status(201).json({ message: "Uživatel byl vytvořen" });
   client.close();

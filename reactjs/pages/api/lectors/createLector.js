@@ -23,6 +23,7 @@ async function handler(req, res) {
   }
   const client = await connectToDatabase();
   const db = client.db();
+  const lektor = "lector";
 
   const existingUser = await db
     .collection("Lectores")
@@ -37,6 +38,7 @@ async function handler(req, res) {
     email: email,
     password: hashedPassword,
     name: name,
+    role: lektor,
     subject: [],
   });
   res.status(201).json({ message: "Lektor byl vytvořen" });

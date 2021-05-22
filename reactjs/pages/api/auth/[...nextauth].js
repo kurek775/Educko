@@ -22,6 +22,7 @@ export default NextAuth({
         const lector = await lectorCollection.findOne({
           email: credentials.email,
         });
+
         if (lector) {
           const isValid = await verifyPassword(
             credentials.password,
@@ -33,7 +34,7 @@ export default NextAuth({
             throw new Error("Nemohl si byt prihlasen");
           }
           client.close();
-          return { email: lector.email, name: lector.name };
+          return { email: lector.email, name: lector.name, image: "lector" };
         } else if (user) {
           const isValid = await verifyPassword(
             credentials.password,
@@ -45,7 +46,7 @@ export default NextAuth({
             throw new Error("Nemohl si byt prihlasen");
           }
           client.close();
-          return { email: user.email, name: user.name };
+          return { email: user.email, name: user.name, image: "user" };
         } else if (!user) {
           client.close();
           throw new Error("Uživatel nenašen");
