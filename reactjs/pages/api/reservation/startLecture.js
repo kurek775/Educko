@@ -7,8 +7,9 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { id } = data;
+  const { id, url } = data;
   const newID = new ObjectID(id);
+
   if (!id) {
     res.status(422).json({
       message: "Stala se chyba",
@@ -22,10 +23,12 @@ async function handler(req, res) {
   await sendLectureData({
     email: zapsan.map((u) => u.uzivatel),
     name: zapsan.map((u) => u.jmeno),
+    link: url,
   });
   if (!result) {
     res.status(422).json({ message: "Hodina nenalezena" });
   }
+
   res.status(201).json({ message: "Hodina zahajena", predmet });
   client.close();
 }
