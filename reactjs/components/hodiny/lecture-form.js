@@ -15,9 +15,9 @@ function LectureForm(props) {
     event.preventDefault();
     const enteredHodina = hodinaInputRef.current.value;
     const enteredPredmet = selected;
-    const enteredDatum = datumInputRef.current.value;
+    const enteredDatum = new Date(datumInputRef.current.value).toUTCString();
     const eneterPopis = popisInputRef.current.value;
-    console.log(enteredHodina, enteredPredmet, enteredDatum, eneterPopis);
+    // console.log(enteredDatum);
     const RData = {
       predmet: enteredPredmet,
       datum: enteredDatum,
@@ -37,7 +37,12 @@ function LectureForm(props) {
 
         <div className={classes.control}>
           <label htmlFor="datum">Datum</label>
-          <input type="text" required id="datum" ref={datumInputRef} />
+          <input
+            type="datetime-local"
+            required
+            id="datum"
+            ref={datumInputRef}
+          />
         </div>
 
         <div className={classes.control}>

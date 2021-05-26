@@ -52,6 +52,16 @@ function SignInForm(props) {
     props.onStartLecture(Data);
   }
 
+  function smazatHodinu(resID) {
+    const enteredID = resID;
+
+    const IDHodiny = {
+      id: resID,
+    };
+
+    props.onDeleteHour(IDHodiny);
+  }
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -70,7 +80,11 @@ function SignInForm(props) {
               {maximalniKapacita}/{prop.kapacita}
             </p>
             <p>{prop.popis}</p>
-            <input onChange={(event) => setUrl(event.target.value)} />
+
+            {session.user.image === "lector" && (
+              <input onChange={(event) => setUrl(event.target.value)} />
+            )}
+
             {session.user.image === "user" && (
               <div className={classes.actions}>
                 {prop.zapsan.some((e) => e.uzivatel === sessionEmail) ? (
@@ -92,11 +106,20 @@ function SignInForm(props) {
                 </button>
               </div>
             )}
+
             {session.user.image === "lector" && (
               <div className={classes.actions}>
                 <a href="http://meet.google.com/new" target="_blank">
                   <button>Vytvorit hodinu</button>
                 </a>
+              </div>
+            )}
+
+            {session.user.image === "lector" && (
+              <div className={classes.actions}>
+                <button onClick={() => smazatHodinu(prop._id)}>
+                  Smazat hodinu
+                </button>
               </div>
             )}
           </li>

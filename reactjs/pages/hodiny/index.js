@@ -50,9 +50,25 @@ function SingToLecture(props) {
     }
     router.replace("/prihlaseni-hodiny");
   }
+  async function smazatHodinu(enteredReservation) {
+    const response = await fetch("/api/reservation/deleteHour", {
+      method: "DELETE",
+      body: JSON.stringify(enteredReservation),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      setError(true);
+      return;
+    }
+    router.replace("/prihlaseni-hodiny");
+  }
   return (
     <div>
       <SignInForm
+        onDeleteHour={smazatHodinu}
         onSignReservation={sendReservationHandler}
         onSignOutReservation={removeReservationHandler}
         onStartLecture={startLecture}
