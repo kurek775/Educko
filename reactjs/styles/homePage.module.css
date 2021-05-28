@@ -1,4 +1,7 @@
 .section {
   text-align: center;
+  left: 50%;
   size: 10em;
+  position: absolute;
+  z-index: 2;
 }
