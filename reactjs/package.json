@@ -11,6 +11,7 @@
     "@syncfusion/ej2-react-schedule": "^19.1.59",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.6.0",
     "firebase": "^8.5.0",
     "firebase-admin": "^9.7.0",
     "mongodb": "^3.6.6",
@@ -18,8 +19,10 @@
     "next-auth": "^3.19.8",
     "nodemailer": "^6.6.0",
     "react": "17.0.2",
+    "react-bootstrap": "^1.6.0",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
-    "react-particles-js": "^3.4.1"
+    "react-particles-js": "^3.4.1",
+    "react-responsive-carousel": "^3.2.18"
   }
 }
