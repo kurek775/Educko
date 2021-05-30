@@ -1,53 +1,71 @@
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import { useSession } from "next-auth/client";
 import moment from "moment";
 require("moment/locale/cs");
 
 const localizer = momentLocalizer(moment);
 const date = new Date();
 const endDate = new Date() + 1;
-const Events = [
-  {
-    id: 0,
-    title: "All Day Event very long title",
-    allDay: true,
-    start: new Date(2021, 3, 0),
-    end: new Date(2021, 3, 1),
-  },
-  {
-    id: 1,
-    title: "Long Event",
-    start: new Date(2021, 3, 7),
-    end: new Date(2021, 3, 10),
-  },
-
-  {
-    id: 2,
-    title: "DTS STARTS",
-    start: new Date(2021, 2, 13, 0, 0, 0),
-    end: new Date(2021, 2, 20, 0, 0, 0),
-  },
-
-  {
-    id: 3,
-    title: "DTS ENDS",
-    start: new Date(2021, 10, 6, 0, 0, 0),
-    end: new Date(2021, 10, 13, 0, 0, 0),
-  },
-
-  {
-    id: 4,
-    title: "Some Event",
-    start: new Date(2021, 3, 9, 0, 0, 0),
-    end: new Date(2021, 3, 10, 0, 0, 0),
-  },
-];
 
 function MyCalendar(props) {
+  const [session, loading] = useSession();
+  let userEmail = "";
+  props.user.map((prop) => (userEmail = prop.email));
+  const zapsan = props.reservation.map((res) => res.zapsan);
+
+  async function prihlasitHandler(resID) {
+    const enteredEmail = userEmail;
+    const enteredID = resID;
+    const enteredName = session.user.name;
+
+    const SRData = {
+      email: enteredEmail,
+      name: enteredName,
+      id: enteredID,
+    };
+
+    props.onSignReservation(SRData);
+  }
+
+  let events = [];
+  let allDay = false;
+  props.reservation.map((res) => {
+    events.push({
+      id: res._id,
+      title: res.predmet,
+      start: new Date(res.datum),
+      end: new Date(res.konec),
+      users: res.zapsan,
+      allDay: false,
+    });
+  });
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const isIn =
+    session.user.image === "user" &&
+    events.map((z) => !z.users.some((u) => u.uzivatel === userEmail));
+  console.log(
+    session.user.image === "user" &&
+      events.map((z) =>
+        !z.users.some((u) => u.uzivatel === userEmail) ? "PRIHLASIT" : "NIC"
+      )
+  );
+  console.log(isIn ? "TRUE" : "FALSE");
+
+  // TODO: OPRAVIT PODMINKU
   return (
     <div>
       <Calendar
         localizer={localizer}
-        events={Events}
+        events={events}
+        onSelectEvent={
+          session.user.image === "user" &&
+          events.map((z) => !z.users.some((u) => u.uzivatel === userEmail))
+            ? (event) => prihlasitHandler(event.id)
+            : (event) => alert(event.title)
+        }
         startAccessor="start"
         endAccessor="end"
         culture="cs"
@@ -58,8 +76,12 @@ function MyCalendar(props) {
           month: "Měsíc",
           week: "Týden",
           day: "Den",
+          date: "Datum",
+          time: "Čas",
+          event: "Událost",
+          agenda: "Detail",
         }}
-        style={{ height: 500 }}
+        style={{ height: 600 }}
       />
     </div>
   );
