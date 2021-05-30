@@ -5,8 +5,8 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { hodina, datum, popis, predmet } = data;
-  if (!predmet || !datum || !popis || !hodina) {
+  const { hodina, datum, popis, predmet, konec } = data;
+  if (!predmet || !datum || !popis || !hodina || !konec) {
     res.status(422).json({
       message: "Neplatný vstup - něco ze vstupních dat chybí.",
     });
@@ -18,6 +18,7 @@ async function handler(req, res) {
   const result = await db.collection("Reservation").insertOne({
     predmet: predmet,
     datum: datum,
+    konec: konec,
     popis: popis,
     hodina: hodina,
     kapacita: 0,

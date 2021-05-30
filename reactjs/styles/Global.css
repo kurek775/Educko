@@ -15,9 +15,10 @@
 }
 
 body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  position: relative;
+  z-index: 2;
   margin: 0;
-  font-family: "Open Sans", "Lato", sans-serif;
-  color: #414141;
   background-color: #e4f1f1;
 }
 

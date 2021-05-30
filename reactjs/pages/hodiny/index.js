@@ -18,7 +18,7 @@ function SingToLecture(props) {
       setError(true);
       return;
     }
-    router.replace("/prihlaseni-hodiny");
+    router.replace("/hodiny");
   }
   async function removeReservationHandler(enteredReservation) {
     const response = await fetch("/api/reservation/deleteReservation", {
@@ -33,7 +33,7 @@ function SingToLecture(props) {
       setError(true);
       return;
     }
-    router.replace("/prihlaseni-hodiny");
+    router.replace("/hodiny");
   }
   async function startLecture(enteredReservation) {
     const response = await fetch("/api/reservation/startLecture", {
@@ -48,7 +48,7 @@ function SingToLecture(props) {
       setError(true);
       return;
     }
-    router.replace("/prihlaseni-hodiny");
+    router.replace("/hodiny");
   }
   async function smazatHodinu(enteredReservation) {
     const response = await fetch("/api/reservation/deleteHour", {
@@ -63,7 +63,7 @@ function SingToLecture(props) {
       setError(true);
       return;
     }
-    router.replace("/prihlaseni-hodiny");
+    router.replace("/hodiny");
   }
   return (
     <div>
