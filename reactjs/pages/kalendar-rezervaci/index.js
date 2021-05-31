@@ -1,9 +1,9 @@
-import SignInForm from "../../components/hodiny/prihlaseni";
+import MyCalendar from "../../components/kalendar/testKalendar";
 import { getSession } from "next-auth/client";
 import { connectToDatabase } from "../../helpers/db";
 import { useRouter } from "next/router";
 
-function SingToLecture(props) {
+function Calendar(props) {
   const router = useRouter();
   async function sendReservationHandler(enteredReservation) {
     const response = await fetch("/api/reservation/signReserve", {
@@ -18,48 +18,14 @@ function SingToLecture(props) {
       setError(true);
       return;
     }
-    router.replace("/prihlaseni-hodiny");
-  }
-  async function removeReservationHandler(enteredReservation) {
-    const response = await fetch("/api/reservation/deleteReservation", {
-      method: "PATCH",
-      body: JSON.stringify(enteredReservation),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    if (!response.ok) {
-      setError(true);
-      return;
-    }
-    router.replace("/prihlaseni-hodiny");
-  }
-  async function startLecture(enteredReservation) {
-    const response = await fetch("/api/reservation/startLecture", {
-      method: "POST",
-      body: JSON.stringify(enteredReservation),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-    if (!response.ok) {
-      setError(true);
-      return;
-    }
-    router.replace("/prihlaseni-hodiny");
+    router.replace("/kalendar-rezervaci");
   }
   return (
-    <div>
-      <SignInForm
-        onSignReservation={sendReservationHandler}
-        onSignOutReservation={removeReservationHandler}
-        onStartLecture={startLecture}
-        reservation={props.reservation}
-        user={props.user}
-      />
-    </div>
+    <MyCalendar
+      user={props.user}
+      reservation={props.reservation}
+      onSignReservation={sendReservationHandler}
+    />
   );
 }
 
@@ -94,4 +60,5 @@ export async function getServerSideProps(context) {
     };
   }
 }
-export default SingToLecture;
+
+export default Calendar;

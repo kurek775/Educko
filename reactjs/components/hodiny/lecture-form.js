@@ -4,6 +4,7 @@ import classes from "./lecture-form.module.css";
 
 function LectureForm(props) {
   const datumInputRef = useRef();
+  const konecInputRef = useRef();
   const hodinaInputRef = useRef();
   const popisInputRef = useRef();
   const [selected, setSelected] = useState();
@@ -15,12 +16,14 @@ function LectureForm(props) {
     event.preventDefault();
     const enteredHodina = hodinaInputRef.current.value;
     const enteredPredmet = selected;
-    const enteredDatum = datumInputRef.current.value;
+    const enteredDatum = new Date(datumInputRef.current.value).toString();
+    const enteredKonecDatum = new Date(konecInputRef.current.value).toString();
     const eneterPopis = popisInputRef.current.value;
-    console.log(enteredHodina, enteredPredmet, enteredDatum, eneterPopis);
+    // console.log(enteredDatum);
     const RData = {
       predmet: enteredPredmet,
       datum: enteredDatum,
+      konec: enteredKonecDatum,
       popis: eneterPopis,
       hodina: enteredHodina,
     };
@@ -37,7 +40,22 @@ function LectureForm(props) {
 
         <div className={classes.control}>
           <label htmlFor="datum">Datum</label>
-          <input type="text" required id="datum" ref={datumInputRef} />
+          <input
+            type="datetime-local"
+            required
+            id="datum"
+            ref={datumInputRef}
+          />
+        </div>
+
+        <div className={classes.control}>
+          <label htmlFor="datum">Konec hodiny</label>
+          <input
+            type="datetime-local"
+            required
+            id="datum"
+            ref={konecInputRef}
+          />
         </div>
 
         <div className={classes.control}>

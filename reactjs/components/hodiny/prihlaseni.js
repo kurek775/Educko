@@ -1,9 +1,11 @@
 import classes from "./prihlaseni.module.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useSession } from "next-auth/client";
 
 function SignInForm(props) {
   const [session, loading] = useSession();
+  const [url, setUrl] = useState();
+  const meetingUrlRef = useRef();
 
   // console.log(props.reservation.map((prop) => console.log(prop)));
   const maximalniKapacita = 20;
@@ -40,16 +42,30 @@ function SignInForm(props) {
 
   async function zahajitHandler(resID) {
     const enteredID = resID;
+    const enteredURL = url;
 
     const Data = {
       id: enteredID,
+      url: enteredURL,
     };
 
     props.onStartLecture(Data);
   }
+
+  function smazatHodinu(resID) {
+    const enteredID = resID;
+
+    const IDHodiny = {
+      id: resID,
+    };
+
+    props.onDeleteHour(IDHodiny);
+  }
+
   if (loading) {
     return <p>Loading...</p>;
   }
+
   const sessionEmail = session.user.email;
   return (
     <div>
@@ -64,6 +80,11 @@ function SignInForm(props) {
               {maximalniKapacita}/{prop.kapacita}
             </p>
             <p>{prop.popis}</p>
+
+            {session.user.image === "lector" && (
+              <input onChange={(event) => setUrl(event.target.value)} />
+            )}
+
             {session.user.image === "user" && (
               <div className={classes.actions}>
                 {prop.zapsan.some((e) => e.uzivatel === sessionEmail) ? (
@@ -81,7 +102,23 @@ function SignInForm(props) {
             {session.user.image === "lector" && (
               <div className={classes.actions}>
                 <button onClick={() => zahajitHandler(prop._id)}>
-                  Zahajit
+                  Poslat email zakum
+                </button>
+              </div>
+            )}
+
+            {session.user.image === "lector" && (
+              <div className={classes.actions}>
+                <a href="http://meet.google.com/new" target="_blank">
+                  <button>Vytvorit hodinu</button>
+                </a>
+              </div>
+            )}
+
+            {session.user.image === "lector" && (
+              <div className={classes.actions}>
+                <button onClick={() => smazatHodinu(prop._id)}>
+                  Smazat hodinu
                 </button>
               </div>
             )}

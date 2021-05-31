@@ -55,7 +55,7 @@ const Navbar = (props) => {
             {session && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
-                  <Link href="/reservesystem">
+                  <Link href="/kalendar-rezervaci">
                     <a className={NavStyle.button}>Rezervacni system</a>
                   </Link>
                 </div>
@@ -107,8 +107,8 @@ const Navbar = (props) => {
             {session && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
-                  <Link href={"/prihlaseni-hodiny"}>
-                    <a className={NavStyle.button}>Prihlaseni k hodine</a>
+                  <Link href={"hodiny"}>
+                    <a className={NavStyle.button}>Hodiny</a>
                   </Link>
                 </div>
               </li>
