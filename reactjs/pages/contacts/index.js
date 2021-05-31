@@ -2,9 +2,9 @@ import classes from "./kontak.module.css";
 
 function contacts() {
   return (
-    <div className={classes.div}>
+    <div className={classes.container}>
       <h1>Kontakty</h1>
-      <p className={classes.p}>
+      <p>
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras
         elementum. Nullam dapibus fermentum ipsum. Temporibus autem quibusdam et
         aut officiis debitis aut rerum necessitatibus saepe eveniet ut et
