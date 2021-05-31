@@ -36,6 +36,7 @@ function MyCalendar(props) {
       start: new Date(res.datum),
       end: new Date(res.konec),
       users: res.zapsan,
+      description: res.popis,
       allDay: false,
     });
   });
@@ -43,29 +44,21 @@ function MyCalendar(props) {
     return <div>Loading...</div>;
   }
 
-  const isIn =
-    session.user.image === "user" &&
-    events.map((z) => !z.users.some((u) => u.uzivatel === userEmail));
-  console.log(
-    session.user.image === "user" &&
-      events.map((z) =>
-        !z.users.some((u) => u.uzivatel === userEmail) ? "PRIHLASIT" : "NIC"
-      )
-  );
-  console.log(isIn ? "TRUE" : "FALSE");
-
-  // TODO: OPRAVIT PODMINKU
   return (
     <div>
       <Calendar
         localizer={localizer}
         events={events}
-        onSelectEvent={
-          session.user.image === "user" &&
-          events.map((z) => !z.users.some((u) => u.uzivatel === userEmail))
-            ? (event) => prihlasitHandler(event.id)
-            : (event) => alert(event.title)
-        }
+        onSelectEvent={(event) => {
+          if (
+            session.user.image === "user" &&
+            !event.users.some((u) => u.uzivatel === userEmail)
+          ) {
+            prihlasitHandler(event.id);
+          } else {
+            alert(event.description);
+          }
+        }}
         startAccessor="start"
         endAccessor="end"
         culture="cs"
