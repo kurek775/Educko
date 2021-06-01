@@ -46,3 +46,8 @@ ul {
 .red {
   color: red;
 }
+
+.carousel-item{
+
+  width: 1000px;
+}

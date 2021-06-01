@@ -2,6 +2,7 @@
 
 .nav {
   background-color: lightblue;
+  z-index: 50;
 }
 
 .button {
@@ -80,6 +81,7 @@ padding: 0 1rem;
   }
 
   .navList {
+    z-index: 50;
     position: fixed;
     top: 80px;
     left: 100%;
