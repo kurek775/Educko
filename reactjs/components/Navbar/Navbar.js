@@ -16,6 +16,7 @@ const Navbar = (props) => {
   function logoutHandler() {
     signOut();
   }
+
   if (loading) {
     return <p>Loading...</p>;
   }
