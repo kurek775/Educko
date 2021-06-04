@@ -2,9 +2,8 @@ import Layout from "../components/Navbar/layout";
 import "../styles/Global.css";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { getSession, Provider } from "next-auth/client";
+import { Provider } from "next-auth/client";
 import Head from "next/head";
-import Background from "../components/background-animace/background";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -20,4 +19,5 @@ function MyApp({ Component, pageProps }) {
     </Provider>
   );
 }
+
 export default MyApp;
