@@ -1,35 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useSession, signOut } from "next-auth/client";
 
 import NavStyle from "./NavStyle.module.css";
 import Link from "next/link";
 import Login_button from "./Login_button";
-// import { connectToDatabase } from "../../helpers/db";
 
 const Navbar = (props) => {
   const [click, setClick] = useState();
-  const [user, setUser] = useState({ u: [] });
   const [session, loading] = useSession();
-  var users = [];
-  let userEmail = "";
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // async function fetchData() {
-  //   const fetchedData = await fetch("api/user/dataUzivatel", {
-  //     method: "GET",
-  //   });
-  //   const users = await fetchedData.json();
-  //   setUser(users);
-  //   console.log("EFFECT" + users);
-  //   // for (var u in user) {
-  //   //   users.push(user[u]);
-  //   // }
-  // }
-
   const clickHandler = () => {
     setClick(!click);
   };
@@ -37,6 +16,7 @@ const Navbar = (props) => {
   function logoutHandler() {
     signOut();
   }
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -51,21 +31,10 @@ const Navbar = (props) => {
           </h1>
 
           <ul className={click ? NavStyle.navListActive : NavStyle.navList}>
-            {/* {session && (
-              <li className={NavStyle.navItem}>
-                <div className={NavStyle.navLink}>
-                  {user.u.some((e) => e.email === session.user.email) ? (
-                    <p>{e.name + "" + e.penize}</p>
-                  ) : null}
-                </div>
-              </li>
-            )} */}
             {session && (
               <li className={NavStyle.navItem}>
                 <div className={NavStyle.navLink}>
-                  <Link href="/platba">
-                    <a className={NavStyle.button}>Platba</a>
-                  </Link>
+                  <p>{session.user.name}</p>
                 </div>
               </li>
             )}
