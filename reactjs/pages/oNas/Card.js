@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Card.module.css";
-import Image from "next/image";
+// import Image from "next/image";
 
 function Card({ img, imgLabel, name, content }) {
   return (
