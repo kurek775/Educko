@@ -1,2 +1,2 @@
 [build]
-  command = "npm run build && npm next start"
+  command = "npm run build"
