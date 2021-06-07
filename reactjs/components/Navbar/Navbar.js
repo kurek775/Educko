@@ -38,6 +38,17 @@ const Navbar = (props) => {
                 </div>
               </li>
             )}
+
+            {session && (
+              <li className={NavStyle.navItem}>
+                <div className={NavStyle.navLink}>
+                  <Link href="/platba">
+                    <a className={NavStyle.button}>Platba</a>
+                  </Link>
+                </div>
+              </li>
+            )}
+
             <li className={NavStyle.navItem}>
               <div className={NavStyle.navLink}>
                 <Link href="/oNas">

@@ -36,6 +36,7 @@ async function handler(req, res) {
     password: hashedPassword,
     name: name,
     role: user,
+    penize: 0,
   });
   res.status(201).json({ message: "Uživatel byl vytvořen" });
   client.close();
