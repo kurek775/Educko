@@ -16,6 +16,7 @@
     "date-fns": "^2.22.1",
     "firebase": "^8.5.0",
     "firebase-admin": "^9.7.0",
+    "hdb-pool": "^0.1.6",
     "moment": "^2.29.1",
     "mongodb": "^3.6.6",
     "mongodb-client-encryption": "^1.2.4",
