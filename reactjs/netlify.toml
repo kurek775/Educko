@@ -1,2 +1,2 @@
 [build]
-  command = "next build"
+  command = "npm run build && npm run export"
