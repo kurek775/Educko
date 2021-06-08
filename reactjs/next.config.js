@@ -1,5 +1,5 @@
 module.exports = {
-  targets: 'serveless',
+  target: 'serveless',
   future: {
     webpack5: true,
   },
