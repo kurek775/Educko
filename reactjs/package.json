@@ -8,8 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@syncfusion/ej2-react-schedule": "^19.1.63",
-    "@zeit/next-css": "^1.0.1",
+    "@netlify/plugin-nextjs": "^3.4.2",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
