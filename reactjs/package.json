@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "postbuild": "next-on-netlify",
+    "start": "next start",
+    "export": "next export"
   },
   "dependencies": {
-    "@netlify/plugin-nextjs": "^3.4.2",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",

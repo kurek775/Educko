@@ -1,4 +1,4 @@
-import Layout from "../components/Navbar/layout";
+import Layout from "../components/navbar/layout";
 import "../styles/Global.css";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
