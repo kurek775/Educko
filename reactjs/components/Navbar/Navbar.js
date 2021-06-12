@@ -6,7 +6,7 @@ import{ Navbar, Container, Nav} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from "next/link";
 import Login_button from "./Login_button";
-
+import Buttonlink from "./Buttonlink";
 const Naavbar = (props) => {
   const mystyle = {
     width: "100%",
@@ -31,6 +31,19 @@ const Naavbar = (props) => {
  
  
   };
+  const navlinkstyle = {
+
+
+    fontSize: "1.2rem",
+    color: "white",
+    
+
+    
+
+
+  };
+   
+
   const [click, setClick] = useState();
   const [session, loading] = useSession();
   const clickHandler = () => {
@@ -55,49 +68,40 @@ return (
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto"  style={navstyle}>
-    {session && (<Nav.Link>
+    {session && (<Nav.Link  >
              {session.user.name}
              </Nav.Link>
             )}
 
-{session && (<Nav.Link><Link href="/platba">
-             Platba
-           </Link>  </Nav.Link>
+{session && (<Nav.Link ><Buttonlink link="/platba" nazev="Platba">  </Buttonlink> </Nav.Link>
             )}
 
-{session && (<Nav.Link><Link href="/kalendar-rezervaci">
-Rezervacni system
-            </Link> </Nav.Link>
+{session && (<Nav.Link><Buttonlink link="/kalendar-rezervaci" nazev="Rezervační systém">  </Buttonlink> </Nav.Link>
             )}
 
-{session && (<Nav.Link><Link href="/profile">
-Profil
-            </Link> </Nav.Link>
+{session && (<Nav.Link><Buttonlink link="/profile" nazev="Profil">  </Buttonlink> </Nav.Link>
             )}
 
 {session && session.user.name === "admin" && (
-  <Nav.Link> <Link href="/vytvareni-lektora">
-Vytvoření lektora
-            </Link> </Nav.Link>
+ <Nav.Link > <Buttonlink link="/vytvareni-lektora" nazev="Vytvoření lektora">  </Buttonlink>
+ </Nav.Link>
             )}
 {session && session.user.name === "admin" && (
-  <Nav.Link> <Link href="/vytvareni-predmetu">
-Vytvoření předmětu
-            </Link> </Nav.Link>
+  <Nav.Link>
+      <Buttonlink link="/vytvareni-predmetu" nazev="Vytvoření předmětu">  </Buttonlink>
+     </Nav.Link>
             )}
 
 {session && session.user.image === "lector" && (
-  <Nav.Link> <Link href="/vytvoreni-hodiny">
-Vytvoření hodiny
-            </Link> </Nav.Link>
+ <Nav.Link >
+   <Buttonlink link="/vytvoreni-hodiny" nazev="Vytvoření hodiny">  </Buttonlink>
+ </Nav.Link>
             )}
-{session && (<Nav.Link><Link href="hodiny">
-Hodiny
-            </Link> </Nav.Link>
+{session && (<Nav.Link  style={navlinkstyle}><Buttonlink link="hodiny" nazev="Hodiny">  </Buttonlink> </Nav.Link>
             )}
-{session && (<Nav.Link><Link href="/seznam-lektoru">
-Seznam lektorů
-            </Link> </Nav.Link>
+{session && (<Nav.Link  style={navlinkstyle}>
+<Buttonlink link="/seznam-lektoru" nazev="Seznam lektorů">  </Buttonlink>
+             </Nav.Link>
             )}
 
 
@@ -118,30 +122,26 @@ Seznam lektorů
 
 
 
-<Nav.Link>
-
-    <Link href="/oNas">
+<Nav.Link >
+<Buttonlink link="/oNas" nazev="O nas">  </Buttonlink>
   
-     O nás
-      </Link>
       </Nav.Link>
 
       <Nav.Link>
-      <Link href="/contacts">
-     Kontakty
-      </Link></Nav.Link>
+      <Buttonlink link="/contacts" nazev="Kontakty">  </Buttonlink></Nav.Link>
  
     </Nav>
     <Nav>
 
 
     {!session && (
-      <Nav.Link>      <Login_button></Login_button></Nav.Link>
+     <Nav.Link>    <Login_button></Login_button></Nav.Link>
     )}
 
-{session && (<Nav.Link><Link href="/">
-<a onClick={logoutHandler}> Odhlásit se </a>
-            </Link> </Nav.Link>
+{session && (<Nav.Link>
+  <a onClick={logoutHandler}> <Buttonlink link="/" nazev="Odhlásit se">  </Buttonlink>
+ </a>
+           </Nav.Link>
             )}
 
     </Nav>
