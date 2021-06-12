@@ -8,6 +8,29 @@ import Link from "next/link";
 import Login_button from "./Login_button";
 
 const Naavbar = (props) => {
+  const mystyle = {
+    width: "100%",
+    height: "7h",
+    display: "flex",
+    margin: "auto",
+    justifyContent: "center",
+    zIndex: "489",
+    backgroundColor: "lightblue"   
+
+ 
+ 
+  };
+
+  const navstyle = {
+
+
+    fontSize: "1.3rem",
+
+    
+
+ 
+ 
+  };
   const [click, setClick] = useState();
   const [session, loading] = useSession();
   const clickHandler = () => {
@@ -21,7 +44,7 @@ const Naavbar = (props) => {
     return <p>Loading...</p>;
   }
 return (
-<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+<Navbar collapseOnSelect expand="lg" bg="lightblue" variant="dark" style={mystyle}>
   <Container>
     <Link href="/">
 
@@ -31,7 +54,7 @@ return (
  
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="me-auto">
+    <Nav className="me-auto"  style={navstyle}>
     {session && (<Nav.Link>
              {session.user.name}
              </Nav.Link>
@@ -73,7 +96,7 @@ Hodiny
             </Link> </Nav.Link>
             )}
 {session && (<Nav.Link><Link href="/seznam-lektoru">
-Hodiny
+Seznam lektorů
             </Link> </Nav.Link>
             )}
 
