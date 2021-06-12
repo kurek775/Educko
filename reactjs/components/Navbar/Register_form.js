@@ -25,8 +25,8 @@ function RegisterForm(props) {
   }
 
   return (
-    <Card>
-      <form className={classes.form} onSubmit={submitHandler}>
+    
+      <form  onSubmit={submitHandler} className={classes.form}>
         <div className={classes.control}>
           <label htmlFor="uname">Uživatelské jméno</label>
           <input type="text" required id="uname" ref={usernameInputRef} />
@@ -50,7 +50,7 @@ function RegisterForm(props) {
           <button>Vytvořit účet</button>
         </div>
       </form>
-    </Card>
+    
   );
 }
 

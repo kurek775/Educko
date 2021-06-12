@@ -23,7 +23,7 @@ function PlatbaForm(props) {
   }
   const userEmail = session.user.email;
   return (
-    <Card>
+ 
       <form onSubmit={submitHandler} className={classes.form}>
         <div className={classes.control}>
           <label htmlFor="castka">Castka</label>
@@ -34,7 +34,7 @@ function PlatbaForm(props) {
           <button>Nahrat penize</button>
         </div>
       </form>
-    </Card>
+   
   );
 }
 

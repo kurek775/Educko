@@ -1,7 +1,8 @@
 import classes from "./Login_form.module.css";
 import { useRef } from "react";
 import Link from "next/link";
-
+import{ Form, Button, Nav} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Register_link from "./Register_link";
 import ForgottenPassword from "../../pages/zapomenute-heslo";
 import ZapomenuteHeslo_link from "./Zapomenute_link";
@@ -26,7 +27,8 @@ function Loginform(props) {
     props.onAddMeetup(UData);
   }
   return (
-    <form className={classes.form} onSubmit={submitHandler}>
+
+    <form onSubmit={submitHandler}  className={classes.form}>
       <div className={classes.control}>
         <label htmlFor="email">Email</label>
         <input type="email" required id="email" ref={emailInputRef} />
@@ -49,6 +51,8 @@ function Loginform(props) {
         </li>
       </ul>
     </form>
+   
+   
   );
 }
 
