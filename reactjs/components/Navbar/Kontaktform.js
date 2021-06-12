@@ -1,8 +1,7 @@
 import classes from "./Kontaktform.module.css";
 import { useRef } from "react";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Kontaktform(props) {
   const emailInputRef = useRef();
@@ -21,11 +20,10 @@ function Kontaktform(props) {
       email: enteredEmail,
     };
 
-    props.onAddMeetup(UData);
+    props.onAddMessage(UData);
   }
   return (
-
-    <form onSubmit={submitHandler}  className={classes.form}>
+    <form onSubmit={submitHandler} className={classes.form}>
       <div className={classes.control}>
         <label htmlFor="email">Váš email</label>
         <input type="email" required id="email" ref={emailInputRef} />
@@ -34,15 +32,11 @@ function Kontaktform(props) {
         <label htmlFor="message">Vaše zpráva</label>
         <textarea type="message" required id="message" ref={messageInputRef} />
       </div>
-   
-          <div className={classes.actions}>
-            <button>Odeslat</button>
-          </div>
-    
-    
+
+      <div className={classes.actions}>
+        <button>Odeslat</button>
+      </div>
     </form>
-   
-   
   );
 }
 
