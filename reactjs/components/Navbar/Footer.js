@@ -18,9 +18,9 @@ function Footer() {
  <ul className={classes.footerRight}>
 <li>  <h2 className={classes.h2}>Služby</h2>
 <ul className={classes.box}>
- <li> <a href="#">d</a></li>
- <li> <a href="#">d</a></li>
- <li> <a href="#">d</a></li>
+ <li> <a href="#">Pomoc s úkolem</a></li>
+ <li> <a href="#">Příprava na písemku</a></li>
+ 
    </ul>
 
 </li>
@@ -29,9 +29,9 @@ function Footer() {
   <h2 className={classes.h2}>Kontakty</h2>
 
 <ul className={classes.box}>
-<li> <a href="#">d</a></li>
- <li> <a href="#">d</a></li>
- <li> <a href="#">d</a></li>
+<li> <a href="#">info@educko.cz</a></li>
+ <li> <a href="#">879 456 133</a></li>
+
   </ul>
 
 </li>

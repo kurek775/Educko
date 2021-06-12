@@ -13,6 +13,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 1.2rem;
+  margin-left: 2rem;
 }
 
 .button:after {

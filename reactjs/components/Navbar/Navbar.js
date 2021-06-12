@@ -31,17 +31,17 @@ const Naavbar = (props) => {
  
  
   };
-  const navlinkstyle = {
+
+  const navlogostyle = {
 
 
-    fontSize: "1.2rem",
-    color: "white",
-    
 
     
 
-
+ 
+ 
   };
+
    
 
   const [click, setClick] = useState();
@@ -61,13 +61,13 @@ return (
   <Container>
     <Link href="/">
 
-    <Navbar.Brand >EDUCKO</Navbar.Brand>
+    <Navbar.Brand style={navlogostyle} >EDUCKO</Navbar.Brand>
 
     </Link>
  
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="me-auto"  style={navstyle}>
+    <Nav className="me-auto"  >
     {session && (<Nav.Link  >
              {session.user.name}
              </Nav.Link>
@@ -97,9 +97,9 @@ return (
    <Buttonlink link="/vytvoreni-hodiny" nazev="Vytvoření hodiny">  </Buttonlink>
  </Nav.Link>
             )}
-{session && (<Nav.Link  style={navlinkstyle}><Buttonlink link="hodiny" nazev="Hodiny">  </Buttonlink> </Nav.Link>
+{session && (<Nav.Link ><Buttonlink link="hodiny" nazev="Hodiny">  </Buttonlink> </Nav.Link>
             )}
-{session && (<Nav.Link  style={navlinkstyle}>
+{session && (<Nav.Link  >
 <Buttonlink link="/seznam-lektoru" nazev="Seznam lektorů">  </Buttonlink>
              </Nav.Link>
             )}
