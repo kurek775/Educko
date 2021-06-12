@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 33% 34% 33%;
   box-shadow: 0 8px 12px 0 rgba(146, 146, 146, 0.2), 0 6px 20px 0 rgba(124, 124, 124, 0.19);
  
   background-color: lightblue;

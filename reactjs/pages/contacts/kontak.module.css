@@ -1,16 +1,14 @@
 .container {
-  margin: auto;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    background-color: white;
-    padding: 1rem;
-    text-align: center;
-    width:850px;
-    max-width: 100%;
- 
-    z-index: 5;
-
-    justify-content: center;
+  box-shadow: 0 1px 4px rgba(247, 186, 186, 0.2);
+  border-radius: 6px;
+  background-color: white;
+  padding: 1rem;
+  text-align: left;
+  width: 40%;
+  z-index: 10;
+  position: absolute;
+  top: 20vh;
+  left: calc(50% - 15rem);
 }
 
 .p {

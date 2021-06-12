@@ -1,49 +1,41 @@
 import classes from "./Footer.module.css";
-import Link from "next/link";
+
 function Footer() {
   return (
- <footer className={classes.footer}>
- <div className={classes.footerLeft}>
-<img src="https://www.czechdesign.cz/files/brosintrikos-praha3-01-1920x1080.png"></img>
-<p>Máme top logo proto pojd
- </p>
- <div className={classes.soc}>
- <a href="#">d</a>
- <a href="#">d</a>
- <a href="#">d</a>
- <a href="#">w</a>
-
- </div>
- </div>
- <ul className={classes.footerRight}>
-<li>  <h2 className={classes.h2}>Služby</h2>
-<ul className={classes.box}>
- <li> <a href="#">d</a></li>
- <li> <a href="#">d</a></li>
- <li> <a href="#">d</a></li>
-   </ul>
-
-</li>
-
-<li className={classes.kontakty}>
-  <h2 className={classes.h2}>Kontakty</h2>
-
-<ul className={classes.box}>
-<li> <a href="#">d</a></li>
- <li> <a href="#">d</a></li>
- <li> <a href="#">d</a></li>
-  </ul>
-
-</li>
-
-
-
- </ul>
- <div className={classes.footerBottom}>
-   <p>Všechna práva vyhrazena Educko 2021</p>
- </div>
- </footer>
-
+    <div className={classes.mainfooter}>
+  
+        <div className={classes.row}>
+          {/* Column1 */}
+          <div className="col">
+          
+          </div>
+          {/* Column2 */}
+          <div className={classes.col1}>
+            <h4>Info</h4>
+            <ul className="list-unstyled">
+              <li>GDPR</li>
+              <li>Obchodní podmínky</li>
+              <li>O nás</li>
+            </ul>
+          </div>
+          {/* Column3 */}
+          <div className={classes.col2}>
+            <h4>Kontakt</h4>
+            <ul className="list-unstyled">
+              <li>telefon</li>
+              <li>ig</li>
+              <li>fb</li>
+            </ul>
+          </div>
+              {/* Column1 */}
+              <div className="col">
+          
+          </div>
+        </div>
+      
+       
+      </div>
+ 
   );
 }
 

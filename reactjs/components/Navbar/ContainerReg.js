@@ -6,7 +6,7 @@ const ContainerReg = () => {
   
 return (
 <div className={classes.cont}>
-    <div className={classes.subcont}><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In enim a arcu imperdiet malesuada. Sed elit dui, 
+    <div><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In enim a arcu imperdiet malesuada. Sed elit dui, 
         pellentesque a, faucibus vel, interdum nec, diam. Vivamus porttitor turpis ac leo. Proin pede metus, vulputate nec, f
         ermentum fringilla, vehicula vitae, justo. Nullam at arcu a est sollicitudin euismod. Nullam sapien sem, ornare ac, nonummy 
         non, lobortis a enim. Aenean placerat. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Donec quis nibh at felis 
@@ -25,7 +25,7 @@ return (
 
 
 
-    <div className={classes.subcont}>
+    <div>
         <h1>Nakupte si tokeny</h1>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In enim a arcu imperdiet malesuada. Sed elit dui, 
         pellentesque a, faucibus vel, interdum nec, diam. Vivamus porttitor turpis ac leo. Proin pede metus, vulputate nec, f

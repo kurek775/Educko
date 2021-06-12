@@ -1,13 +1,10 @@
 
-.form{
-  max-width: 700px;
-  width: 100%;
-  z-index: 1;
-}
+.form {
+    padding: 1rem;
+  }
   
   .control {
     margin-bottom: 0.5rem;
-    
   }
   
   .control label {
@@ -48,11 +45,7 @@
     border-color: #0c043a;
   }
   
-  @media only screen and (max-width: 600px) {
-    .form{
-      max-width: 100%;
-  }
-}
+  
   
   
   
