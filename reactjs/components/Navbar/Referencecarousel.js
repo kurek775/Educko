@@ -1,11 +1,11 @@
 import Carousel from 'react-bootstrap/Carousel'
-
+import classes from "./Refcar.module.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Referencecarousel = () => {
   const mystyle = {
-    width: "70%",
+    width: "100%",
     height: "auto",
     display: "flex",
     margin: "auto",
@@ -19,8 +19,10 @@ marginBottom: "3%"
   };
   const caritstyle = {
     textAlign: "center",
-    backgroundColor: "lightblue",
-    padding:"60px"
+   color: "white",
+    backgroundColor: "rgb(117, 148, 158)",
+    padding:"40px",
+
 };
    
 return (
@@ -29,57 +31,32 @@ return (
 
 <Carousel style={mystyle}>
   <Carousel.Item style={caritstyle}>
-    <div>
-      <h1> Reference 1</h1>
+    <div className={classes.text}>
+      <h1>Marie</h1>
       <p>
-        wqerqwerwerrrrrrrrrrrrrrrrrrrrrrwereqwrqwerweq
-        ewqrqwerqewrqewr
-        qwerewqrwer
-        qwer
-      </p>
-      <p>
-        wqerqwerwerrrrrrrrrrrrrrrrrrrrrrwereqwrqwerweq
-        ewqrqwerqewrqewr
-        qwerewqrwer
-        qwer
-      </p>
+  "Jožko se moc zlepšil v matematice nevím co bych si bez Edučka počla"
+    </p>
     </div>
    
   </Carousel.Item>
   <Carousel.Item style={caritstyle}>
-  <div>
-      <h1> Reference 2</h1>
+  <div className={classes.text}>
+      <h1>Patrik "Rytmus" Vrbovský</h1>
       <p>
-        wqerqwerwerrrrrrrrrrrrrrrrrrrrrrwereqwrqwerweq
-        ewqrqwerqewrqewr
-        qwerewqrwer
-        qwer
+"One čavo Attilka uz do tri raz napocital a to neni nejaka hocijaka picovina to je vazna vec"
       </p>
-      <p>
-        wqerqwerwerrrrrrrrrrrrrrrrrrrrrrwereqwrqwerweq
-        ewqrqwerqewrqewr
-        qwerewqrwer
-        qwer
-      </p>
+
     </div>
 
   
   </Carousel.Item>
   <Carousel.Item style={caritstyle}>
-  <div>
-      <h1> Reference 3</h1>
+  <div className={classes.text}>
+      <h1>Artuš</h1>
       <p>
-        wqerqwerwerrrrrrrrrrrrrrrrrrrrrrwereqwrqwerweq
-        ewqrqwerqewrqewr
-        qwerewqrwer
-        qwer
+     "Lancelot umí anglicky fakt v topu může s náma sedět u kulatého stolu"
       </p>
-      <p>
-        wqerqwerwerrrrrrrrrrrrrrrrrrrrrrwereqwrqwerweq
-        ewqrqwerqewrqewr
-        qwerewqrwer
-        qwer
-      </p>
+
     </div>
 
 

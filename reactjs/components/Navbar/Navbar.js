@@ -14,7 +14,7 @@ const Naavbar = (props) => {
     margin: "auto",
     alignItems: "center",
     zIndex: "489",
-    backgroundColor: "lightblue",   
+    backgroundColor: "rgb(117, 148, 158)" 
 
  
  

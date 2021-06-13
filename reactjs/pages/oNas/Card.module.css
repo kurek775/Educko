@@ -1,17 +1,17 @@
 .Card {
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 20px;
 
-  background-repeat: no-repeat;
-  background-position: top;
-  max-width: 350px;
-  box-shadow: 0 0 1.2rem;
+
+width: 500px;
+max-width: 100%;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
 }
 .Image {
   padding: 1rem;
-
-  border: 5px solid white;
-  box-shadow: 0 0 5px;
+width: 85%;
+ 
+ 
   z-index: 1;
 }
 .Img {
@@ -22,10 +22,13 @@
 }
 
 .Name {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
+
+
 }
 .Content {
   text-align: justify;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  padding: 1rem;
 }

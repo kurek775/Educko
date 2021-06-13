@@ -1,8 +1,7 @@
 .cont{
   margin: auto;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    background-color: lightblue;
+ 
+  
     margin-top: 3%;
     padding: 2rem;
     text-align: left;
@@ -14,6 +13,23 @@
     justify-content: center;
 
 }
-.subcont{
-  max-width: 100%;
+.button{
+
+  background-color: rgb(117, 148, 158);
+  color: white;
+  border-radius: 10px;
+  width: 250px;
+  height: 60px;
+  font-size: 1.5rem;
+ 
+  border:none;
+  text-align: center;
+  margin: auto;
+}
+
+.button:hover
+{
+box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+
+
 }

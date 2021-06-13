@@ -1,15 +1,50 @@
-.cont{
+.usp{
     display: flex;
     justify-content: center;
     display: grid;
   grid-template-columns: auto auto auto;
   box-shadow: 0 8px 12px 0 rgba(146, 146, 146, 0.2), 0 6px 20px 0 rgba(124, 124, 124, 0.19);
  
-  background-color: lightblue;
+  background-color: rgb(117, 148, 158);
 width: 100%;
 margin: auto;
 
 
   padding: 30px;
 
+}
+.usp>div{
+  display: flex;
+  padding: 15px 0;
+  justify-content: center;
+}
+
+.usp>div>div{
+  display: flex;
+  margin-right: 90px;
+  align-items: center;
+}
+
+.usp>div>div:last-child{
+  margin-right: 0;
+}
+
+.usp>div>div>img{
+  height: 80px;
+  margin-right: 10px;
+  transform: scale(1);
+  transition: all ease 300ms;
+}
+
+.usp p{
+  color: white;
+  max-width: 165px;
+  text-align: center;
+  cursor: default;
+  margin-bottom: 0;
+}
+
+.usp>div>div:hover img{
+  transform: scale(1.1);
+  transition: all ease 300ms;
 }

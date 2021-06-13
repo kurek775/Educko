@@ -5,11 +5,12 @@ import styles from "./Card.module.css";
 function Card({ img, imgLabel, name, content }) {
   return (
     <div className={styles.Card}>
+         <h2 className={styles.Name}>{name}</h2>
       <div className={styles.Img}>
-        <p>Tady ma byt obrazek</p>
+ <img  className={styles.Image} src={img}></img>
       </div>
       <div>
-        <h2 className={styles.Name}>{name}</h2>
+     
         <p className={styles.Content}>{content}</p>
       </div>
     </div>

@@ -10,7 +10,7 @@ return (
 
 
 
-    <div>
+
         <h1>Následně rezervujte</h1>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In enim a arcu imperdiet malesuada. Sed elit dui, 
         pellentesque a, faucibus vel, interdum nec, diam. Vivamus porttitor turpis ac leo. Proin pede metus, vulputate nec, f
@@ -20,7 +20,7 @@ return (
         cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda es
         t, omnis dolor repellendus. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Itaque earum rerum hic tenetur 
         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Fusce tellus. 
-        Integer tempor. Suspendisse nisl.</p></div>
+        Integer tempor. Suspendisse nisl.</p>
    
 
 </div>
