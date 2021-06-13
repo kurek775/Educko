@@ -1,6 +1,8 @@
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import Modal from "react-bootstrap/Modal";
 import { useSession } from "next-auth/client";
 import moment from "moment";
+import { useState } from "react";
 require("moment/locale/cs");
 
 const localizer = momentLocalizer(moment);
@@ -8,11 +10,34 @@ const date = new Date();
 const endDate = new Date() + 1;
 
 function MyCalendar(props) {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [session, loading] = useSession();
   let userEmail = "";
   props.user.map((prop) => (userEmail = prop.email));
   const zapsan = props.reservation.map((res) => res.zapsan);
 
+  function popupModal() {
+    return (
+      <>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Dialog>
+            <Modal.Header closeButton>
+              <Modal.Title>Modal title</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Modal body text goes here.</p>
+            </Modal.Body>
+            <Modal.Footer>
+              <button variant="secondary">Close</button>
+              <button variant="primary">Save changes</button>
+            </Modal.Footer>
+          </Modal.Dialog>
+        </Modal>
+      </>
+    );
+  }
   async function prihlasitHandler(resID) {
     const enteredEmail = userEmail;
     const enteredID = resID;
@@ -47,6 +72,7 @@ function MyCalendar(props) {
   return (
     <div>
       <Calendar
+        popup={false}
         localizer={localizer}
         events={events}
         onSelectEvent={(event) => {
@@ -55,10 +81,15 @@ function MyCalendar(props) {
             !event.users.some((u) => u.uzivatel === userEmail)
           ) {
             prihlasitHandler(event.id);
+            // popupModal();
           } else {
-            alert(event.description);
+            // alert(event.description);
+            // handleShow();
+            // handleShow;
+            // popupModal(handleShow);
           }
         }}
+        onShowMore={() => handleShow(popupModal)}
         startAccessor="start"
         endAccessor="end"
         culture="cs"
