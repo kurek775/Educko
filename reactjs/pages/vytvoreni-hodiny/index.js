@@ -3,6 +3,7 @@ import LectureForm from "../../components/hodiny/lecture-form";
 import classes from "./modal.module.css";
 import { connectToDatabase } from "../../helpers/db";
 import { useRouter } from "next/router";
+import { getSession } from "next-auth/client";
 
 function CreateLecture(props) {
   const router = useRouter();
@@ -31,7 +32,16 @@ function CreateLecture(props) {
   );
 }
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
   const client = await connectToDatabase();
   const subjectCollection = await client
     .db()

@@ -5,7 +5,7 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { hodina, datum, popis, predmet, konec } = data;
+  const { hodina, datum, popis, predmet, konec, ucitel } = data;
   if (!predmet || !datum || !popis || !hodina || !konec) {
     res.status(422).json({
       message: "Neplatný vstup - něco ze vstupních dat chybí.",
@@ -17,6 +17,7 @@ async function handler(req, res) {
   const db = client.db();
   const result = await db.collection("Reservation").insertOne({
     predmet: predmet,
+    ucitel: ucitel,
     datum: datum,
     konec: konec,
     popis: popis,

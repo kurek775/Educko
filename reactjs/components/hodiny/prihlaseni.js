@@ -71,59 +71,62 @@ function SignInForm(props) {
     <div>
       <h1 className={classes.headline}>Seznam planovanych hodin</h1>
       <ul className={classes.container}>
-        {props.reservation.map((prop) => (
-          <li key={prop._id} className={classes.modal}>
-            <h1>{prop.hodina}</h1>
-            <h3>{prop.predmet}</h3>
-            <h4>{prop.datum}</h4>
-            <p>
-              {maximalniKapacita}/{prop.kapacita}
-            </p>
-            <p>{prop.popis}</p>
+        {props.reservation.map(
+          (prop) =>
+            maximalniKapacita !== prop.kapacita && (
+              <li key={prop._id} className={classes.modal}>
+                <h1>{prop.hodina}</h1>
+                <h3>{prop.predmet}</h3>
+                <h4>{prop.datum}</h4>
+                <p>
+                  {maximalniKapacita}/{prop.kapacita}
+                </p>
+                <p>{prop.popis}</p>
 
-            {session.user.image === "lector" && (
-              <input onChange={(event) => setUrl(event.target.value)} />
-            )}
-
-            {session.user.image === "user" && (
-              <div className={classes.actions}>
-                {prop.zapsan.some((e) => e.uzivatel === sessionEmail) ? (
-                  <button onClick={() => odhlasitHandler(prop._id)}>
-                    Odhlasit se
-                  </button>
-                ) : (
-                  <button onClick={() => prihlasitHandler(prop._id)}>
-                    Prihlasit se
-                  </button>
+                {session.user.image === "lector" && (
+                  <input onChange={(event) => setUrl(event.target.value)} />
                 )}
-              </div>
-            )}
 
-            {session.user.image === "lector" && (
-              <div className={classes.actions}>
-                <button onClick={() => zahajitHandler(prop._id)}>
-                  Poslat email zakum
-                </button>
-              </div>
-            )}
+                {session.user.image === "user" && (
+                  <div className={classes.actions}>
+                    {prop.zapsan.some((e) => e.uzivatel === sessionEmail) ? (
+                      <button onClick={() => odhlasitHandler(prop._id)}>
+                        Odhlasit se
+                      </button>
+                    ) : (
+                      <button onClick={() => prihlasitHandler(prop._id)}>
+                        Prihlasit se
+                      </button>
+                    )}
+                  </div>
+                )}
 
-            {session.user.image === "lector" && (
-              <div className={classes.actions}>
-                <a href="http://meet.google.com/new" target="_blank">
-                  <button>Vytvorit hodinu</button>
-                </a>
-              </div>
-            )}
+                {session.user.image === "lector" && (
+                  <div className={classes.actions}>
+                    <button onClick={() => zahajitHandler(prop._id)}>
+                      Poslat email zakum
+                    </button>
+                  </div>
+                )}
 
-            {session.user.image === "lector" && (
-              <div className={classes.actions}>
-                <button onClick={() => smazatHodinu(prop._id)}>
-                  Smazat hodinu
-                </button>
-              </div>
-            )}
-          </li>
-        ))}
+                {session.user.image === "lector" && (
+                  <div className={classes.actions}>
+                    <a href="http://meet.google.com/new" target="_blank">
+                      <button>Vytvorit hodinu</button>
+                    </a>
+                  </div>
+                )}
+
+                {session.user.image === "lector" && (
+                  <div className={classes.actions}>
+                    <button onClick={() => smazatHodinu(prop._id)}>
+                      Smazat hodinu
+                    </button>
+                  </div>
+                )}
+              </li>
+            )
+        )}
       </ul>
     </div>
   );
