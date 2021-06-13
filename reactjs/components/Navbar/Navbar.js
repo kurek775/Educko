@@ -40,16 +40,16 @@ const Naavbar = (props) => {
   }
 return (
 <Navbar expand="lg" bg="lightblue" variant="dark" style={mystyle}>
-  <Container>
 
-   <div className={classes.Brand}>
+
+ 
      
     <Link href="/">
 
 <Navbar.Brand  ><img src="/logo.png"></img></Navbar.Brand>
 
 </Link>
-   </div>
+   
  
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
@@ -119,7 +119,7 @@ return (
 
   
   </Navbar.Collapse>
-  </Container>
+
 </Navbar>
 
 )
