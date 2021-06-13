@@ -53,7 +53,7 @@ return (
  
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="mr-auto"  >
+    <Nav className="ml-auto"  >
       <div className={classes.Jmeno}>
     {session && (<Nav.Link  >
              {session.user.name}
