@@ -1,9 +1,7 @@
 .usp{
     display: flex;
     justify-content: center;
-    display: grid;
-  grid-template-columns: auto auto auto;
-  box-shadow: 0 8px 12px 0 rgba(146, 146, 146, 0.2), 0 6px 20px 0 rgba(124, 124, 124, 0.19);
+    box-shadow: 0 8px 12px 0 rgba(146, 146, 146, 0.2), 0 6px 20px 0 rgba(124, 124, 124, 0.19);
  
   background-color: rgb(117, 148, 158);
 width: 100%;
@@ -21,7 +19,7 @@ margin: auto;
 
 .usp>div>div{
   display: flex;
-  margin-right: 90px;
+  margin-right: 70px;
   align-items: center;
 }
 
@@ -30,7 +28,7 @@ margin: auto;
 }
 
 .usp>div>div>img{
-  height: 80px;
+  height: 60px;
   margin-right: 10px;
   transform: scale(1);
   transition: all ease 300ms;
@@ -47,4 +45,47 @@ margin: auto;
 .usp>div>div:hover img{
   transform: scale(1.1);
   transition: all ease 300ms;
+}
+
+@media(max-width: 900px){
+  .usp>div>div{
+      margin-right: 25px;
+  }
+  
+}
+@media(max-width: 767px)
+  {
+    .usp>div>div{
+      flex-direction: column;
+  }
+  .usp>div>div>img{
+      margin-right: 0;
+      margin-bottom: 5px;
+  }
+  .usp>div{
+      justify-content: space-around;
+  }
+  .usp>div>div{
+    margin-right: 0;
+}
+
+  }
+
+  @media(max-width: 550px){
+    .usp>div{
+        flex-direction: column;
+    }
+    .usp>div>div{
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    .usp>div>div:last-child{
+        margin-bottom: 0;
+    }
+    .usp>div>div>img{
+        margin-right: 10px;
+        margin-bottom: 0;
+        height: 60px;
+    }
 }
