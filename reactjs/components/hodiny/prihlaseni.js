@@ -78,7 +78,13 @@ function SignInForm(props) {
                 <h1>{prop.hodina}</h1>
                 <h3>{prop.predmet}</h3>
                 <h4>{prop.datum}</h4>
-                <h2>{prop.ucitel}</h2>
+                <h4>{prop.ucitel}</h4>
+                <h5>Seznam zaku</h5>
+                <p>
+                  {prop.zapsan.map((z) => (
+                    <p>{z.jmeno}</p>
+                  ))}
+                </p>
 
                 <p>
                   {maximalniKapacita}/{prop.kapacita}
