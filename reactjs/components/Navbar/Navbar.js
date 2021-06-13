@@ -102,11 +102,7 @@ return (
       <Nav.Link>
       <Buttonlink link="/contacts" nazev="Kontakty">  </Buttonlink></Nav.Link>
  
-    </Nav>
-    <Nav>
-
-
-    {!session && (
+      {!session && (
      <Nav.Link>    <Login_button></Login_button></Nav.Link>
     )}
 
@@ -115,8 +111,13 @@ return (
 
            </Nav.Link> </a>
             )}
-
     </Nav>
+
+
+
+
+
+  
   </Navbar.Collapse>
   </Container>
 </Navbar>

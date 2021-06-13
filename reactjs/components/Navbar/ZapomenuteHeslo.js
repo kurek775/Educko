@@ -15,7 +15,7 @@ function ZapomenuteHeslo(props) {
     props.onAddMeetup(UData);
   }
   return (
-    <Card>
+
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor="email">Email</label>
@@ -25,7 +25,8 @@ function ZapomenuteHeslo(props) {
           <button>Změnit heslo</button>
         </div>
       </form>
-    </Card>
+ 
+  
   );
 }
 

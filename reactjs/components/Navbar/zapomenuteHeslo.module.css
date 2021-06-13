@@ -43,3 +43,18 @@
   background-color: #0e43a55d;
   border-color: #0c043a;
 }
+.modal {
+  margin: auto;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: white;
+    padding: 1rem;
+    text-align: center;
+    width: 700px;
+    max-width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+   
+
+    justify-content: center;
+}

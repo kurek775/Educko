@@ -19,7 +19,7 @@ function ZmenaHeslaForm(props) {
     props.onAddMeetup(UData);
   }
   return (
-    <Card>
+<div className={classes.modal}>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor="password">Nove heslo</label>
@@ -34,7 +34,7 @@ function ZmenaHeslaForm(props) {
           <button>Změnit heslo</button>
         </div>
       </form>
-    </Card>
+    </div>
   );
 }
 
