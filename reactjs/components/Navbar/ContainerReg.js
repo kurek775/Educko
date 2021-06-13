@@ -1,12 +1,13 @@
 import classes from "./ContainerReg.module.css"
 import Button from 'react-bootstrap/Button'
 import Link from "next/link";
+import Referencecarousel from "./Referencecarousel";
 
 const ContainerReg = () => {
   
 return (
-<div className={classes.cont}>
-    <div className={classes.subcont}><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In enim a arcu imperdiet malesuada. Sed elit dui, 
+<div>
+    <div className={classes.cont}><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In enim a arcu imperdiet malesuada. Sed elit dui, 
         pellentesque a, faucibus vel, interdum nec, diam. Vivamus porttitor turpis ac leo. Proin pede metus, vulputate nec, f
         ermentum fringilla, vehicula vitae, justo. Nullam at arcu a est sollicitudin euismod. Nullam sapien sem, ornare ac, nonummy 
         non, lobortis a enim. Aenean placerat. Maecenas ipsum velit, consectetuer eu lobortis ut, dictum at dui. Donec quis nibh at felis 
@@ -15,17 +16,18 @@ return (
         t, omnis dolor repellendus. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Itaque earum rerum hic tenetur 
         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Fusce tellus. 
         Integer tempor. Suspendisse nisl.</p>
-        <Link href="/reg_modal">
-        <Button variant="primary" size="lg" active>
-    Registrujte se
-  </Button>
+       
+        <Link href="/reg_modal"><button className={classes.button}>Registrujte se</button>
+     
+  
+  
   </Link>
   
         </div>
+        <Referencecarousel></Referencecarousel>
 
 
-
-    <div className={classes.subcont}>
+    <div className={classes.cont}>
         <h1>Nakupte si tokeny</h1>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In enim a arcu imperdiet malesuada. Sed elit dui, 
         pellentesque a, faucibus vel, interdum nec, diam. Vivamus porttitor turpis ac leo. Proin pede metus, vulputate nec, f
@@ -37,8 +39,7 @@ return (
         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Fusce tellus. 
         Integer tempor. Suspendisse nisl.</p></div>
    
-
-</div>
+        </div>
 
 )
 }
