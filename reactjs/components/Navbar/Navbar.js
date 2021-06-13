@@ -34,7 +34,7 @@ const Naavbar = (props) => {
 
   function logoutHandler() {
     signOut();
-  } 
+  }
   if (loading) {
     return <p>Loading...</p>;
   }

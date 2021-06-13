@@ -1,8 +1,10 @@
 import Card from "../ui/Card";
 import { useRef, useState } from "react";
 import classes from "./lecture-form.module.css";
+import { useSession } from "next-auth/client";
 
 function LectureForm(props) {
+  const [session, loading] = useSession();
   const datumInputRef = useRef();
   const konecInputRef = useRef();
   const hodinaInputRef = useRef();
@@ -19,6 +21,7 @@ function LectureForm(props) {
     const enteredDatum = new Date(datumInputRef.current.value).toString();
     const enteredKonecDatum = new Date(konecInputRef.current.value).toString();
     const eneterPopis = popisInputRef.current.value;
+    const ucitel = session.user.email;
     // console.log(enteredDatum);
     const RData = {
       predmet: enteredPredmet,
@@ -26,8 +29,12 @@ function LectureForm(props) {
       konec: enteredKonecDatum,
       popis: eneterPopis,
       hodina: enteredHodina,
+      ucitel: ucitel,
     };
     props.onAddReserve(RData);
+  }
+  if (loading) {
+    return <p>Loading...</p>;
   }
 
   return (
@@ -39,21 +46,21 @@ function LectureForm(props) {
         </div>
 
         <div className={classes.control}>
-          <label htmlFor="datum">Datum</label>
+          <label htmlFor="datum-zacatek">Datum</label>
           <input
             type="datetime-local"
             required
-            id="datum"
+            id="datum-zacatek"
             ref={datumInputRef}
           />
         </div>
 
         <div className={classes.control}>
-          <label htmlFor="datum">Konec hodiny</label>
+          <label htmlFor="datum-konec">Konec hodiny</label>
           <input
             type="datetime-local"
             required
-            id="datum"
+            id="datum-konec"
             ref={konecInputRef}
           />
         </div>

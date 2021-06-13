@@ -5,17 +5,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export"
   },
   "dependencies": {
-    "@netlify/plugin-nextjs": "^3.4.2",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
     "date-fns": "^2.22.1",
     "moment": "^2.29.1",
     "mongodb": "^3.6.6",
-    "mongodb-client-encryption": "^1.2.4",
     "next": "^10.2.3",
     "next-auth": "^3.19.8",
     "nodemailer": "^6.6.0",
