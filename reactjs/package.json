@@ -1,12 +1,9 @@
 {
   "name": "educko-next",
-  "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "export": "next export"
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -25,5 +22,8 @@
     "react-icons": "^4.2.0",
     "react-particles-js": "^3.4.1",
     "react-responsive-carousel": "^3.2.18"
+  },
+  "devDependencies": {
+    "buffer-loader": "^0.1.0"
   }
 }
