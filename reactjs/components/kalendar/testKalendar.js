@@ -11,8 +11,6 @@ const endDate = new Date() + 1;
 
 function MyCalendar(props) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const [session, loading] = useSession();
   let userEmail = "";
   props.user.map((prop) => (userEmail = prop.email));
@@ -20,22 +18,20 @@ function MyCalendar(props) {
 
   function popupModal() {
     return (
-      <>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Dialog>
-            <Modal.Header closeButton>
-              <Modal.Title>Modal title</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <p>Modal body text goes here.</p>
-            </Modal.Body>
-            <Modal.Footer>
-              <button variant="secondary">Close</button>
-              <button variant="primary">Save changes</button>
-            </Modal.Footer>
-          </Modal.Dialog>
-        </Modal>
-      </>
+      <Modal show={show}>
+        <Modal.Dialog>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal title</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>Modal body text goes here.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <button variant="secondary">Close</button>
+            <button variant="primary">Save changes</button>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </Modal>
     );
   }
   async function prihlasitHandler(resID) {
@@ -72,7 +68,7 @@ function MyCalendar(props) {
   return (
     <div>
       <Calendar
-        popup={false}
+        popup={true}
         localizer={localizer}
         events={events}
         onSelectEvent={(event) => {
@@ -86,10 +82,11 @@ function MyCalendar(props) {
             // alert(event.description);
             // handleShow();
             // handleShow;
-            // popupModal(handleShow);
+            setShow(true);
+            console.log(show);
+            popupModal;
           }
         }}
-        onShowMore={() => handleShow(popupModal)}
         startAccessor="start"
         endAccessor="end"
         culture="cs"
