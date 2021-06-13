@@ -1,46 +1,28 @@
 import { useState } from "react";
 
 import { useSession, signOut } from "next-auth/client";
-import{ Navbar, Container, Nav} from 'react-bootstrap'
-
+import{ Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
+import classes from "./Navbar.module.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from "next/link";
 import Login_button from "./Login_button";
 import Buttonlink from "./Buttonlink";
 const Naavbar = (props) => {
   const mystyle = {
-    width: "100%",
-    height: "7h",
+
     display: "flex",
     margin: "auto",
-    justifyContent: "center",
+    alignItems: "center",
     zIndex: "489",
-    backgroundColor: "lightblue"   
+    backgroundColor: "lightblue",   
 
  
  
   };
-
-  const navstyle = {
-
-
-    fontSize: "1.3rem",
-
-    
-
- 
- 
-  };
-
-  const navlogostyle = {
+  
 
 
 
-    
-
- 
- 
-  };
 
    
 
@@ -57,73 +39,63 @@ const Naavbar = (props) => {
     return <p>Loading...</p>;
   }
 return (
-<Navbar collapseOnSelect expand="lg" bg="lightblue" variant="dark" style={mystyle}>
+<Navbar expand="lg" bg="lightblue" variant="dark" style={mystyle}>
   <Container>
+
+   <div className={classes.Brand}>
+     
     <Link href="/">
 
-    <Navbar.Brand style={navlogostyle} >EDUCKO</Navbar.Brand>
+<Navbar.Brand  ><img src="/logo.png"></img></Navbar.Brand>
 
-    </Link>
+</Link>
+   </div>
  
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="me-auto"  >
+    <Nav className="mr-auto"  >
+      <div className={classes.Jmeno}>
     {session && (<Nav.Link  >
              {session.user.name}
              </Nav.Link>
+            )}</div>
+            {session && session.user.name === "admin" && (
+  <div className={classes.Dropdown}>
+<NavDropdown title="Vytvoření" id="basic-nav-dropdown">
+  <NavDropdown.Item ><Link href="/vytvareni-lektora"><div className={classes.Dropitem}>Lektora</div></Link></NavDropdown.Item>
+      <NavDropdown.Item ><Link href="/vytvareni-predmetu"><div className={classes.Dropitem}>Předmětu</div></Link></NavDropdown.Item>
+        </NavDropdown></div>
+)}
+
+
+{session && session.user.image === "lector" && (
+  <div className={classes.Dropdown}>
+<NavDropdown title="Hodiny" id="basic-nav-dropdown">
+  <NavDropdown.Item ><Link href="/vytvoreni-hodiny"><div className={classes.Dropitem}> Vytvoření hodiny</div></Link></NavDropdown.Item>
+      <NavDropdown.Item ><Link href="hodiny"><div className={classes.Dropitem}>Moje hodiny</div></Link></NavDropdown.Item>
+        </NavDropdown></div>
+)}
+
+
+
+{session &&  session.user.image === "user" &&(<Nav.Link ><Buttonlink link="/platba" nazev="Platba">  </Buttonlink> </Nav.Link>
             )}
 
-{session && (<Nav.Link ><Buttonlink link="/platba" nazev="Platba">  </Buttonlink> </Nav.Link>
-            )}
-
-{session && (<Nav.Link><Buttonlink link="/kalendar-rezervaci" nazev="Rezervační systém">  </Buttonlink> </Nav.Link>
+{session && (<Nav.Link><Buttonlink link="/kalendar-rezervaci" nazev="Rezervace">  </Buttonlink> </Nav.Link>
             )}
 
 {session && (<Nav.Link><Buttonlink link="/profile" nazev="Profil">  </Buttonlink> </Nav.Link>
             )}
 
-{session && session.user.name === "admin" && (
- <Nav.Link > <Buttonlink link="/vytvareni-lektora" nazev="Vytvoření lektora">  </Buttonlink>
- </Nav.Link>
-            )}
-{session && session.user.name === "admin" && (
-  <Nav.Link>
-      <Buttonlink link="/vytvareni-predmetu" nazev="Vytvoření předmětu">  </Buttonlink>
-     </Nav.Link>
-            )}
 
-{session && session.user.image === "lector" && (
- <Nav.Link >
-   <Buttonlink link="/vytvoreni-hodiny" nazev="Vytvoření hodiny">  </Buttonlink>
- </Nav.Link>
-            )}
-{session && (<Nav.Link ><Buttonlink link="hodiny" nazev="Hodiny">  </Buttonlink> </Nav.Link>
-            )}
+
 {session && (<Nav.Link  >
-<Buttonlink link="/seznam-lektoru" nazev="Seznam lektorů">  </Buttonlink>
+<Buttonlink link="/seznam-lektoru" nazev="Lektoři">  </Buttonlink>
              </Nav.Link>
             )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <Nav.Link >
-<Buttonlink link="/oNas" nazev="O nas">  </Buttonlink>
+<Buttonlink link="/oNas" nazev="O nás">  </Buttonlink>
   
       </Nav.Link>
 
@@ -138,16 +110,17 @@ return (
      <Nav.Link>    <Login_button></Login_button></Nav.Link>
     )}
 
-{session && (<Nav.Link>
-  <a onClick={logoutHandler}> <Buttonlink link="/" nazev="Odhlásit se">  </Buttonlink>
- </a>
-           </Nav.Link>
+{session && (<a onClick={logoutHandler}><Nav.Link>
+   <Buttonlink link="/" nazev="Odhlášení">  </Buttonlink>
+
+           </Nav.Link> </a>
             )}
 
     </Nav>
   </Navbar.Collapse>
   </Container>
 </Navbar>
+
 )
 }
 export default Naavbar;

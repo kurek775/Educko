@@ -4,9 +4,7 @@ const Containeros = () => {
   
 return (
 <div className={classes.cont}>
-    <div><h1>TOP</h1></div>
-    <div><h1>TOP</h1></div>
-    <div><h1>TOP</h1></div>
+
 
 </div>
 

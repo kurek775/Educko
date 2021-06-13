@@ -1,0 +1,51 @@
+.Brand{
+    padding-right: 20%;
+margin-left: -30%;
+}
+
+@media (max-width: 600px){
+    .Brand{
+        padding-right: 0%;
+        margin-left: 10%;
+    }
+  }
+  .Dropdown{
+    position: relative;
+    border: none;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-left: 3rem;
+    margin-right: 2rem;
+    width: 90px;
+  }
+  .Jmeno{
+      text-align: center;
+  }
+  .Dropdown:after {
+    content: "";
+    height: 3px;
+    border-radius: 0.3rem;
+    background-color: white;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    position: absolute;
+    transition: all 300ms ease-in-out;
+  }
+  .Dropdown:hover{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .Dropdown:hover::after{
+    width: 100%;
+  }
+.Dropitem{
+    text-decoration: none;
+    color: inherit;
+    text-align: left;
+  
+}

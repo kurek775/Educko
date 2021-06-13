@@ -1,16 +1,19 @@
 import { getSession } from "next-auth/client";
 import { connectToDatabase } from "../../helpers/db";
-
+import classes from "./profile.module.css"
 function ProfilePage(props) {
   return (
-    <div className="center">
+    <div className={classes.info}>
       {props.users.map((u) => (
-        <div key={u._id}>
-          <h1>{u.name}</h1>
-          <h1>{u.email}</h1>
-          <h1>
-            {u.penize < 4 ? u.penize + " Educaky" : u.penize + " Educaku"}
-          </h1>
+        <div key={u._id} >
+          <ul>
+<li>jméno: {u.name}</li>
+<li>email: {u.email}</li>
+<li> stav konta: {u.penize < 4 ? u.penize + " Educkoiny" : u.penize + " Educkoiny"}</li>
+
+
+          </ul>
+    
         </div>
       ))}
     </div>

@@ -44,3 +44,57 @@
   flex-wrap: wrap;
   /* justify-content: space-between; */
 }
+
+.Detail{
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  width: 60%;
+  padding: 3%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 12px;
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.2);
+
+}
+.Smazat{
+  background-color: rgb(158, 40, 40);
+  color: white;
+  border-radius: 10px;
+  width: 250px;
+  height: 60px;
+  font-size: 1.5rem;
+  border:none;
+}
+
+.Edit{
+  background-color: rgb(36, 104, 36);
+  color: white;
+  border-radius: 10px;
+  width: 250px;
+  height: 60px;
+  font-size: 1.5rem;
+  border:none;
+  margin-left: 5%;
+}
+
+.Smazat:hover{
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+  width: 255px;
+  height: 62px;
+
+}
+
+.Edit:hover{
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+  width: 255px;
+  height: 62px;
+
+}
+@media only screen and (max-width: 768px) {
+ 
+  .Smazat, .Edit{
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+}

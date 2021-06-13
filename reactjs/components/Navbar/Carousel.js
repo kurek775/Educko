@@ -5,18 +5,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Imagecarousel = () => {
   const mystyle = {
-    width: "70%",
-    height: "auto",
+    width: "100%",
+
     display: "flex",
     margin: "auto",
     justifyContent: "center",
-    zIndex: "3"
+    zIndex: "3",
+ 
 
  
  
   };
   const caritstyle = {
-
+height: "50%"
 };
    
 return (
@@ -24,29 +25,31 @@ return (
 
 
 <Carousel style={mystyle}>
-  <Carousel.Item>
+ 
+  <Carousel.Item style={caritstyle}>
+
     <img
       className="d-block w-100"
-      src="https://www.tasteofhome.com/wp-content/uploads/2018/07/back-to-school-excitement-GettyImages-908815432.jpg"
+      src="/skola1.png"
       alt="First slide"
    
     />
-   
+  
   </Carousel.Item>
-  <Carousel.Item>
+  <Carousel.Item style={caritstyle}>
     <img 
       className="d-block w-100"
-      src="https://img.etimg.com/thumb/msid-77391367,width-650,imgsize-677864,,resizemode-4,quality-100/to-reduce-risk-experts-say-schools-should-make-adjustments-when-resuming-in-person-classes-.jpg"
+      src="/skola2.png"
       alt="Second slide"
 
     />
 
   
   </Carousel.Item>
-  <Carousel.Item>
+  <Carousel.Item style={caritstyle}>
     <img
       className="d-block w-100"
-      src="https://media.vanityfair.com/photos/5f64eda08f3d1388648dde56/master/pass/covid-classrooms.jpg"
+      src="/skola3.png"
       alt="Third slide"
 
     />

@@ -1,7 +1,7 @@
 .Card {
   border-radius: 25px;
-  padding: 16px;
-  background-image: url("/wave.svg");
+  padding: 20px;
+
   background-repeat: no-repeat;
   background-position: top;
   max-width: 350px;
@@ -9,7 +9,7 @@
 }
 .Image {
   padding: 1rem;
-  border-radius: 50%;
+
   border: 5px solid white;
   box-shadow: 0 0 5px;
   z-index: 1;

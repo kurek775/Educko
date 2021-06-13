@@ -4,14 +4,14 @@ function Footer() {
   return (
  <footer className={classes.footer}>
  <div className={classes.footerLeft}>
-<img src="https://www.czechdesign.cz/files/brosintrikos-praha3-01-1920x1080.png"></img>
-<p>Máme top logo proto pojd
+   <div className={classes.logo}>
+<img src="/logo.png"></img></div>
+<p>Najdete nás i na sociálních sítích
  </p>
  <div className={classes.soc}>
- <a href="#">d</a>
- <a href="#">d</a>
- <a href="#">d</a>
- <a href="#">w</a>
+<a href="https://www.facebook.com/"> <img src="/fb.png"></img> </a>
+<a href="https://www.instagram.com/"><img src="/ig.png"></img> </a>
+
 
  </div>
  </div>
@@ -29,8 +29,8 @@ function Footer() {
   <h2 className={classes.h2}>Kontakty</h2>
 
 <ul className={classes.box}>
-<li> <a href="#">info@educko.cz</a></li>
- <li> <a href="#">879 456 133</a></li>
+<li> info@educko.cz</li>
+ <li> 879 456 133</li>
 
   </ul>
 

@@ -5,6 +5,7 @@ import Footer from "./Footer";
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
 function Layout(props) {
   return (
     <Fragment>
@@ -12,7 +13,7 @@ function Layout(props) {
       <Naavbar></Naavbar>
 
       <main>{props.children}</main>
-      <Background></Background>
+   
       <Footer></Footer>
     </Fragment>
   );

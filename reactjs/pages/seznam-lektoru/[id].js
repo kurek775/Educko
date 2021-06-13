@@ -4,6 +4,7 @@ import { ObjectID } from "bson";
 import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import classes from "./seznamlektoru.module.css"
 
 function LektorDetail(props) {
   const [session, loading] = useSession();
@@ -35,10 +36,12 @@ function LektorDetail(props) {
   } else {
     return (
       <Fragment>
-        <div key={props.lektor._id}>
-          <h1>{props.lektor.name}</h1>
+    <div className={classes.Detail}>
+        <div key={props.lektor._id} >
+      
+          <h1 >{props.lektor.name}</h1>
           <p>{props.lektor.email}</p>
-          <p>PREDMETY</p>
+          <p>Vyučuje : </p>
           <div>
             {props.lektor.subject.map((sub) => (
               <div key={sub.id}>
@@ -46,15 +49,17 @@ function LektorDetail(props) {
               </div>
             ))}
           </div>
-        </div>
+          </div>
+         
         {session.user.name === "admin" && (
-          <button onClick={deleteHandler}>Smazat lektora</button>
+          <button className={classes.Smazat} onClick={deleteHandler}>Smazat lektora</button>
         )}
         {session.user.name === "admin" && (
           <Link href={"/seznam-lektoru/uprava-lektora/" + props.lektor._id}>
-            <button>Upravit lektora</button>
+            <button className={classes.Edit}>Upravit lektora</button>
           </Link>
         )}
+        </div>
       </Fragment>
     );
   }

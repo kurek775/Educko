@@ -12,6 +12,7 @@ const Referencecarousel = () => {
     justifyContent: "center",
     zIndex: "3",
 marginTop: "3%",
+marginBottom: "3%"
 
  
  
