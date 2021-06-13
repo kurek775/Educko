@@ -78,14 +78,17 @@ function SignInForm(props) {
                 <h1>{prop.hodina}</h1>
                 <h3>{prop.predmet}</h3>
                 <h4>{prop.datum}</h4>
+                <h2>{prop.ucitel}</h2>
+
                 <p>
                   {maximalniKapacita}/{prop.kapacita}
                 </p>
                 <p>{prop.popis}</p>
 
-                {session.user.image === "lector" && (
-                  <input onChange={(event) => setUrl(event.target.value)} />
-                )}
+                {session.user.image === "lector" &&
+                  prop.ucitel === session.user.email && (
+                    <input onChange={(event) => setUrl(event.target.value)} />
+                  )}
 
                 {session.user.image === "user" && (
                   <div className={classes.actions}>
@@ -101,29 +104,32 @@ function SignInForm(props) {
                   </div>
                 )}
 
-                {session.user.image === "lector" && (
-                  <div className={classes.actions}>
-                    <button onClick={() => zahajitHandler(prop._id)}>
-                      Poslat email zakum
-                    </button>
-                  </div>
-                )}
+                {session.user.image === "lector" &&
+                  prop.ucitel === session.user.email && (
+                    <div className={classes.actions}>
+                      <button onClick={() => zahajitHandler(prop._id)}>
+                        Poslat email zakum
+                      </button>
+                    </div>
+                  )}
 
-                {session.user.image === "lector" && (
-                  <div className={classes.actions}>
-                    <a href="http://meet.google.com/new" target="_blank">
-                      <button>Vytvorit hodinu</button>
-                    </a>
-                  </div>
-                )}
+                {session.user.image === "lector" &&
+                  prop.ucitel === session.user.email && (
+                    <div className={classes.actions}>
+                      <a href="http://meet.google.com/new" target="_blank">
+                        <button>Vytvorit hodinu</button>
+                      </a>
+                    </div>
+                  )}
 
-                {session.user.image === "lector" && (
-                  <div className={classes.actions}>
-                    <button onClick={() => smazatHodinu(prop._id)}>
-                      Smazat hodinu
-                    </button>
-                  </div>
-                )}
+                {session.user.image === "lector" &&
+                  prop.ucitel === session.user.email && (
+                    <div className={classes.actions}>
+                      <button onClick={() => smazatHodinu(prop._id)}>
+                        Smazat hodinu
+                      </button>
+                    </div>
+                  )}
               </li>
             )
         )}
