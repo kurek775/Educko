@@ -13,15 +13,13 @@ const endDate = new Date() + 1;
 function MyCalendar(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [id, setID] = useState("");
+  const [zapsan, setZapsan] = useState(false);
   const [session, loading] = useSession();
   let userEmail = "";
-  let eventID;
   props.user.map((prop) => (userEmail = prop.email));
-  const zapsan = props.reservation.map((res) => res.zapsan);
 
-  function openModalHandler(id) {
+  function openModalHandler() {
     setModalIsOpen(true);
-    setID(id);
   }
 
   function closeModalHandler() {
@@ -65,38 +63,20 @@ function MyCalendar(props) {
         localizer={localizer}
         events={events}
         onSelectEvent={(event) => {
-          openModalHandler(event.id);
-          // eventID = event.id;
-
-          // console.log(event.id);
-
-          // console.log(eventID);
-          // {
-          //   modalIsOpen && (
-          //     <Modal
-          //       onCancel={closeModalHandler}
-          //       onConfirm={closeModalHandler}
-          //       events={event.id}
-          //     />
-          //   );
-          //   modalIsOpen && <Backdrop onCancel={closeModalHandler} />;
-          //   console.log(modalIsOpen);
-          // }
+          {
+            if (
+              session.user.image === "user" &&
+              !event.users.some((u) => u.uzivatel === userEmail)
+            ) {
+              openModalHandler();
+              setID(event.id);
+              setZapsan(true);
+            } else {
+              openModalHandler();
+              setZapsan(false);
+            }
+          }
         }}
-        // {
-        //   if (
-        //     session.user.image === "user" &&
-        //     !event.users.some((u) => u.uzivatel === userEmail)
-        //   ) {
-        //     {}
-        //     prihlasitHandler(event.id);
-        //   } else {
-        //     // alert(event.description);
-        //     setShow(true);
-        //     popupModal(event);
-        //   }
-        // }
-        // onShowMore={openModalHandler}
         startAccessor="start"
         endAccessor="end"
         culture="cs"
@@ -117,8 +97,8 @@ function MyCalendar(props) {
       {modalIsOpen && (
         <Modal
           onCancel={closeModalHandler}
-          onConfirm={() => prihlasitHandler(eventID)}
-          // events={eventID}
+          onConfirm={() => prihlasitHandler(id)}
+          zapsan={zapsan}
         />
       )}
       {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}

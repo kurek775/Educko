@@ -11,15 +11,17 @@ function Modal(props) {
   //   console.log(props.events);
   return (
     <div className={classes.modal}>
-      <h1>Chcete se prihlasit k hodine</h1>
-      <p>Za prihlaseni se vam odecte 5 Educkoinu</p>
+      <h1>{props.zapsan ? "Chcete se prihlasit" : "Jste prihlasen"}</h1>
+      {props.zapsan === true && <p>Za prihlaseni se vam odecte 5 Educkoinu</p>}
       <p>{props.events}</p>
       <button className="btn btn--alt" onClick={cancelHandler}>
         Zrusit
       </button>
-      <button className="btn" onClick={confirmHandler}>
-        Zapsat se na hodinu
-      </button>
+      {props.zapsan === true && (
+        <button className="btn" onClick={confirmHandler}>
+          Zapsat se na hodinu
+        </button>
+      )}
     </div>
   );
 }
