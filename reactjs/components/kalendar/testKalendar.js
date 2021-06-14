@@ -1,5 +1,6 @@
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import Modal from "react-bootstrap/Modal";
+import Modal from "../modal/modal";
+import Backdrop from "../modal/backdrop";
 import { useSession } from "next-auth/client";
 import moment from "moment";
 import { useState } from "react";
@@ -10,30 +11,21 @@ const date = new Date();
 const endDate = new Date() + 1;
 
 function MyCalendar(props) {
-  const [show, setShow] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [show, setShow] = useState(false);
   const [session, loading] = useSession();
   let userEmail = "";
   props.user.map((prop) => (userEmail = prop.email));
   const zapsan = props.reservation.map((res) => res.zapsan);
 
-  function popupModal() {
-    return (
-      <Modal show={show}>
-        <Modal.Dialog>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>Modal body text goes here.</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <button variant="secondary">Close</button>
-            <button variant="primary">Save changes</button>
-          </Modal.Footer>
-        </Modal.Dialog>
-      </Modal>
-    );
+  function openModalHandler() {
+    setModalIsOpen(true);
   }
+
+  function closeModalHandler() {
+    setModalIsOpen(false);
+  }
+
   async function prihlasitHandler(resID) {
     const enteredEmail = userEmail;
     const enteredID = resID;
@@ -68,25 +60,37 @@ function MyCalendar(props) {
   return (
     <div>
       <Calendar
-        popup={true}
         localizer={localizer}
         events={events}
         onSelectEvent={(event) => {
-          if (
-            session.user.image === "user" &&
-            !event.users.some((u) => u.uzivatel === userEmail)
-          ) {
-            prihlasitHandler(event.id);
-            // popupModal();
-          } else {
-            // alert(event.description);
-            // handleShow();
-            // handleShow;
-            setShow(true);
-            console.log(show);
-            popupModal;
-          }
+          openModalHandler();
+
+          // {
+          //   modalIsOpen && (
+          //     <Modal
+          //       onCancel={closeModalHandler}
+          //       onConfirm={closeModalHandler}
+          //       events={event.id}
+          //     />
+          //   );
+          //   modalIsOpen && <Backdrop onCancel={closeModalHandler} />;
+          //   console.log(modalIsOpen);
+          // }
         }}
+        // {
+        //   if (
+        //     session.user.image === "user" &&
+        //     !event.users.some((u) => u.uzivatel === userEmail)
+        //   ) {
+        //     {}
+        //     prihlasitHandler(event.id);
+        //   } else {
+        //     // alert(event.description);
+        //     setShow(true);
+        //     popupModal(event);
+        //   }
+        // }
+        // onShowMore={openModalHandler}
         startAccessor="start"
         endAccessor="end"
         culture="cs"
@@ -104,6 +108,14 @@ function MyCalendar(props) {
         }}
         style={{ height: 600 }}
       />
+      {modalIsOpen && (
+        <Modal
+          onCancel={closeModalHandler}
+          onConfirm={closeModalHandler}
+          // events={event.id}
+        />
+      )}
+      {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}
     </div>
   );
 }
