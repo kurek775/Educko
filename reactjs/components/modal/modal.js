@@ -1,3 +1,5 @@
+import classes from "./modal.module.css";
+
 function Modal(props) {
   function cancelHandler() {
     props.onCancel();
@@ -6,12 +8,12 @@ function Modal(props) {
   function confirmHandler() {
     props.onConfirm();
   }
-
+  //   console.log(props.events);
   return (
-    <div className="modal">
+    <div className={classes.modal}>
       <h1>Chcete se prihlasit k hodine</h1>
       <p>Za prihlaseni se vam odecte 5 Educkoinu</p>
-      {/* <p>{props.events}</p> */}
+      <p>{props.events}</p>
       <button className="btn btn--alt" onClick={cancelHandler}>
         Zrusit
       </button>

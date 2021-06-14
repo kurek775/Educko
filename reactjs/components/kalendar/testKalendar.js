@@ -3,7 +3,7 @@ import Modal from "../modal/modal";
 import Backdrop from "../modal/backdrop";
 import { useSession } from "next-auth/client";
 import moment from "moment";
-import { useState } from "react";
+import { useRef, useState } from "react";
 require("moment/locale/cs");
 
 const localizer = momentLocalizer(moment);
@@ -12,14 +12,16 @@ const endDate = new Date() + 1;
 
 function MyCalendar(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  // const [show, setShow] = useState(false);
+  const [id, setID] = useState("");
   const [session, loading] = useSession();
   let userEmail = "";
+  let eventID;
   props.user.map((prop) => (userEmail = prop.email));
   const zapsan = props.reservation.map((res) => res.zapsan);
 
-  function openModalHandler() {
+  function openModalHandler(id) {
     setModalIsOpen(true);
+    setID(id);
   }
 
   function closeModalHandler() {
@@ -38,6 +40,7 @@ function MyCalendar(props) {
     };
 
     props.onSignReservation(SRData);
+    setModalIsOpen(false);
   }
 
   let events = [];
@@ -56,15 +59,18 @@ function MyCalendar(props) {
   if (loading) {
     return <div>Loading...</div>;
   }
-
   return (
     <div>
       <Calendar
         localizer={localizer}
         events={events}
         onSelectEvent={(event) => {
-          openModalHandler();
+          openModalHandler(event.id);
+          // eventID = event.id;
 
+          // console.log(event.id);
+
+          // console.log(eventID);
           // {
           //   modalIsOpen && (
           //     <Modal
@@ -111,8 +117,8 @@ function MyCalendar(props) {
       {modalIsOpen && (
         <Modal
           onCancel={closeModalHandler}
-          onConfirm={closeModalHandler}
-          // events={event.id}
+          onConfirm={() => prihlasitHandler(eventID)}
+          // events={eventID}
         />
       )}
       {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}
