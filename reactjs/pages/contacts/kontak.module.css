@@ -1,7 +1,7 @@
 .container {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+
   border-radius: 6px;
-  background-color: white;
+  background-color: #e4f1f1;
   padding: 1rem;
   text-align: center;
   width: 850px;
@@ -26,12 +26,13 @@
 }
 .flexItem {
   justify-content: center;
+  padding-left: 7%;
 }
 .flexItem2 {
-  width: 5px;
+  width: 0.7%;
   height: 350px;
   border-radius: 5px;
-  background-color: black;
+  background-color: rgb(117, 148, 158);
 }
 .content {
   font-size: 2rem;

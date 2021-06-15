@@ -2,11 +2,14 @@ import { connectToDatabase } from "../../helpers/db";
 import classes from "./seznamlektoru.module.css";
 import Link from "next/link";
 import { getSession } from "next-auth/client";
+import AboutUs from "../oNas";
 
 function SeznamLektoru({ lectores }) {
   return (
     <div>
-      <h1 className={classes.headline}>Naši lektoři</h1>
+      <AboutUs></AboutUs>
+   
+      <div> <h1 className={classes.headline}>Naše lektorky a lektoři</h1></div>
       <ul className={classes.container}>
         {lectores.map((lector) => (
           <li key={lector._id} className={classes.modal}>
@@ -32,7 +35,12 @@ export async function getServerSideProps(context) {
     .collection("Lectores")
     .find({})
     .toArray();
-  if (!session) {
+    return {
+      props: {
+        lectores: JSON.parse(JSON.stringify(lectoresCollection)),
+      },
+    };
+ /* if (!session) {
     return {
       redirect: {
         destination: "/login-page",
@@ -45,7 +53,7 @@ export async function getServerSideProps(context) {
         lectores: JSON.parse(JSON.stringify(lectoresCollection)),
       },
     };
-  }
+  }*/
 }
 
 export default SeznamLektoru;

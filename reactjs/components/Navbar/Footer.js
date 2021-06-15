@@ -17,17 +17,18 @@ function Footer() {
  </div>
  </div>
  <ul className={classes.footerRight}>
-<li>  <h2 className={classes.h2}>Služby</h2>
+<li>  <h2 className={classes.h2}>Informace</h2>
 <ul className={classes.box}>
- <li> <a href="#">Pomoc s úkolem</a></li>
- <li> <a href="#">Příprava na písemku</a></li>
+ <li> <a href="#">GDPR</a></li>
+ <li> <a href="#">Obchodní podmínky</a></li>
+ <li> <Link href="/contacts"><a>Kontakty</a></Link></li>
  
    </ul>
 
 </li>
 
 <li className={classes.kontakty}>
-  <h2 className={classes.h2}>Kontakty</h2>
+  <h2 className={classes.h2}>Kontakt</h2>
 
 <ul className={classes.box}>
 <li><FaEnvelope size={20} style={{ marginRight: 5 }}/>  info@educko.cz</li>

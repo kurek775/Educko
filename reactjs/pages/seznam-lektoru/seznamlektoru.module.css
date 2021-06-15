@@ -19,24 +19,30 @@
 .actions button {
   font: inherit;
   cursor: pointer;
-  background-color: #002677;
+  background-color: rgb(117, 148, 158);
   color: white;
   padding: 0.5rem 1.5rem;
-  border: 1px solid #000000;
+  border: none;
   border-radius: 4px;
   font-weight: bold;
+  transform: scale(1);
+  transition: all ease 300ms;
 }
 
 .actions button:hover,
 .actions button:active {
-  background-color: #0e43a55d;
-  border-color: #0c043a;
+  background-color: rgb(100, 109, 112);
+  transform: scale(1.1);
+  transition: all ease 300ms;
+
 }
 
 .headline {
   margin: auto;
   text-align: center;
   padding: 20px;
+  background-color: rgb(117, 148, 158);
+  color: white;
 }
 
 .container {

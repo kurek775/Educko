@@ -37,10 +37,7 @@ function contacts() {
       <div className={classes.flexItem2}></div>
       <div className={classes.container}>
         <h1>Kontakty</h1>
-        <p>
-          Máte na nás dotazy neváhejte kontaktujte nás na : 5648978977989778
-          nebo vyplňte tento formulář.
-        </p>
+      
         <Kontaktform onAddMessage={sendMail}></Kontaktform>
       </div>
     </div>

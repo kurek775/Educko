@@ -89,18 +89,13 @@ return (
 
 
 
-{session && (<Nav.Link  >
-<Buttonlink link="/seznam-lektoru" nazev="Lektoři">  </Buttonlink>
+<Nav.Link  >
+<Buttonlink link="/seznam-lektoru" nazev="O nás">  </Buttonlink>
              </Nav.Link>
-            )}
+            
 
-<Nav.Link >
-<Buttonlink link="/oNas" nazev="O nás">  </Buttonlink>
-  
-      </Nav.Link>
 
-      <Nav.Link>
-      <Buttonlink link="/contacts" nazev="Kontakty">  </Buttonlink></Nav.Link>
+
  
       {!session && (
      <Nav.Link>    <Login_button></Login_button></Nav.Link>
