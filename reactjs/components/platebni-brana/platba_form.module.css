@@ -35,7 +35,8 @@
   display: block;
   font: inherit;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(0, 0, 0);
+  
   padding: 0.25rem;
   width: 100%;
 }
@@ -48,18 +49,23 @@
 .actions button {
   font: inherit;
   cursor: pointer;
-  background-color: #002677;
+  background-color: rgb(117, 148, 158);
   color: white;
   padding: 0.5rem 1.5rem;
-  border: 1px solid #000000;
-  border-radius: 4px;
+  border: none;
+  border-radius: 1px;
   font-weight: bold;
+  transform: scale(1);
+  transition: all ease 300ms;
 }
 
 .actions button:hover,
 .actions button:active {
-  background-color: #0e43a55d;
-  border-color: #0c043a;
+  background-color: rgb(81, 95, 100);
+ 
+  
+  transform: scale(1.1);
+  transition: all ease 300ms;
 }
 @media only screen and (max-width: 600px) {
   .form{
