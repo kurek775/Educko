@@ -1,5 +1,6 @@
 import classes from "./kontak.module.css";
 import Kontaktform from "../../components/Navbar/Kontaktform";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { useRouter } from "next/router";
 function contacts() {
   const router = useRouter();
@@ -22,13 +23,26 @@ function contacts() {
     router.replace("/");
   }
   return (
-    <div className={classes.container}>
-      <h1>Kontakty</h1>
-      <p>
-        Máte na nás dotazy neváhejte kontaktujte nás na : 5648978977989778 nebo
-        vyplňte tento formulář.
-      </p>
-      <Kontaktform onAddMessage={sendMail}></Kontaktform>
+    <div className={classes.flexBox}>
+      <div className={classes.flexItem}>
+        <ul>
+          <li className={classes.content}>
+            <FaEnvelope size={30} style={{ marginRight: 5 }} /> info@educko.cz
+          </li>
+          <li className={classes.content}>
+            <FaPhoneAlt size={30} style={{ marginRight: 5 }} /> 879 456 133
+          </li>
+        </ul>
+      </div>
+      <div className={classes.flexItem2}></div>
+      <div className={classes.container}>
+        <h1>Kontakty</h1>
+        <p>
+          Máte na nás dotazy neváhejte kontaktujte nás na : 5648978977989778
+          nebo vyplňte tento formulář.
+        </p>
+        <Kontaktform onAddMessage={sendMail}></Kontaktform>
+      </div>
     </div>
   );
 }
