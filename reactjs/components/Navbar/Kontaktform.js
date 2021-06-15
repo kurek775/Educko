@@ -32,6 +32,8 @@ function Kontaktform(props) {
         <label htmlFor="message">Vaše zpráva</label>
         <textarea type="message" required id="message" ref={messageInputRef} />
       </div>
+      <label> Vložením zprávy souhlasíte s podmínkami ochrany osobních údajů</label>
+     
 
       <div className={classes.actions}>
         <button>Odeslat</button>
