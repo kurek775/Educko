@@ -1,15 +1,17 @@
 {
   "name": "educko-next",
+  "main": "./pages/_app.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-on-netlify"
+    "start": "next start"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
     "date-fns": "^2.22.1",
+    "jose": "^3.12.3",
     "moment": "^2.29.1",
     "mongodb": "^3.6.6",
     "next": "^10.2.3",

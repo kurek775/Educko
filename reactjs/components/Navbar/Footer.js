@@ -1,5 +1,6 @@
 import classes from "./Footer.module.css";
 import Link from "next/link";
+import { FaPhoneAlt , FaEnvelope } from "react-icons/fa";
 function Footer() {
   return (
  <footer className={classes.footer}>
@@ -29,8 +30,8 @@ function Footer() {
   <h2 className={classes.h2}>Kontakty</h2>
 
 <ul className={classes.box}>
-<li> info@educko.cz</li>
- <li> 879 456 133</li>
+<li><FaEnvelope size={20} style={{ marginRight: 5 }}/>  info@educko.cz</li>
+ <li><FaPhoneAlt size={20} style={{ marginRight: 5 }}/>  879 456 133</li>
 
   </ul>
 
