@@ -4,7 +4,7 @@ import Particles from "react-particles-js";
 function Background(props) {
   return (
     <Particles
-      style={{ zIndex: "1", position: "relative" }}
+      style={{ zIndex: "-2", position: "relative" }}
       height="100%"
       width="95%"
       params={{

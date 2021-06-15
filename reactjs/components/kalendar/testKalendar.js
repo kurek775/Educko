@@ -1,9 +1,11 @@
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import Modal from "react-bootstrap/Modal";
+import {Modal, Button }from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useSession } from "next-auth/client";
 import moment from "moment";
 import { useState } from "react";
 require("moment/locale/cs");
+
 
 const localizer = momentLocalizer(moment);
 const date = new Date();
@@ -18,20 +20,20 @@ function MyCalendar(props) {
 
   function popupModal() {
     return (
-      <Modal show={show}>
-        <Modal.Dialog>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>Modal body text goes here.</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <button variant="secondary">Close</button>
-            <button variant="primary">Save changes</button>
-          </Modal.Footer>
-        </Modal.Dialog>
-      </Modal>
+      <Modal.Dialog>
+      <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+      
+        <Modal.Body>
+          <p>Modal body text goes here.</p>
+        </Modal.Body>
+      
+        <Modal.Footer>
+          <Button variant="secondary">Close</Button>
+          <Button variant="primary">Save changes</Button>
+        </Modal.Footer>
+      </Modal.Dialog>
     );
   }
   async function prihlasitHandler(resID) {

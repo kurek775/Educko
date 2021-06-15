@@ -1,20 +1,4 @@
-.Brand{
-    padding-right: 20%;
- margin-left: -30%;
-}
-@media (max-width: 1800px){
-    .Brand{
-        padding-right: 0%;
-        margin-left: -10%;
-    }
-  }
 
-@media only screen and (max-width: 600px){
-    .Brand{
-        padding-right: 0%;
-        margin-left: 0%;
-    }
-  }
   .Dropdown{
     position: relative;
     border: none;

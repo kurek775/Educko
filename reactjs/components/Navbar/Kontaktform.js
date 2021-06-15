@@ -1,7 +1,6 @@
 import classes from "./Kontaktform.module.css";
 import { useRef } from "react";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function Kontaktform(props) {
   const emailInputRef = useRef();
@@ -23,6 +22,7 @@ function Kontaktform(props) {
     props.onAddMessage(UData);
   }
   return (
+
     <form onSubmit={submitHandler} className={classes.form}>
       <div className={classes.control}>
         <label htmlFor="email">Váš email</label>
@@ -37,6 +37,9 @@ function Kontaktform(props) {
         <button>Odeslat</button>
       </div>
     </form>
+
+
+
   );
 }
 
