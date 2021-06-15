@@ -11,14 +11,14 @@ function Modal(props) {
   //   console.log(props.events);
   return (
     <div className={classes.modal}>
-      <h1>{props.zapsan ? "Chcete se prihlasit" : "Jste prihlasen"}</h1>
-      {props.zapsan === true && <p>Za prihlaseni se vam odecte 5 Educkoinu</p>}
+      <h1>{props.zapsan ? "Chcete se přihlásit" : "Jste přihlášen"}</h1>
+      {props.zapsan === true && <p>Za přihlášení se vám odečte 5 Educkoinů</p>}
       <p>{props.events}</p>
-      <button className="btn btn--alt" onClick={cancelHandler}>
-        Zrusit
+      <button className={classes.button} onClick={cancelHandler}>
+        Zrušit
       </button>
       {props.zapsan === true && (
-        <button className="btn" onClick={confirmHandler}>
+        <button className={classes.button1} onClick={confirmHandler}>
           Zapsat se na hodinu
         </button>
       )}

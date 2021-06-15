@@ -27,10 +27,10 @@ function contacts() {
       <div className={classes.flexItem}>
         <ul>
           <li className={classes.content}>
-            <FaEnvelope size={30} style={{ marginRight: 5 }} /> info@educko.cz
+            <FaEnvelope size={25} style={{ marginRight: 5 }} /> info@educko.cz
           </li>
           <li className={classes.content}>
-            <FaPhoneAlt size={30} style={{ marginRight: 5 }} /> 879 456 133
+            <FaPhoneAlt size={25} style={{ marginRight: 5 }} /> 879 456 133
           </li>
         </ul>
       </div>
