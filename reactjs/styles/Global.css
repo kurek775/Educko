@@ -37,7 +37,24 @@ ul {
 .red {
   color: red;
 }
-/* MARCUS MODAL*/
+button{
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: rgb(117, 148, 158);
+  color: white;
+  border: 1px solid rgb(117, 148, 158);
+  margin: 0 1rem;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  box-shadow: 1px 1px 5px gray;
+}
+button:hover {
+  background-color: #66858f;
+  border-color: #66858f;
+}
 
 .btn {
   font: inherit;

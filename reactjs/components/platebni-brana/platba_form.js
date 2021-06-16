@@ -30,9 +30,9 @@ function PlatbaForm(props) {
           <input type="text" required id="castka" ref={castkaInputRef} />
         </div>
 
-        <div className={classes.actions}>
+      
           <button>Nahrat penize</button>
-        </div>
+      
       </form>
    
   );

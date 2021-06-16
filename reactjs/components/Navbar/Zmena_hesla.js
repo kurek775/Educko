@@ -30,9 +30,9 @@ function ZmenaHeslaForm(props) {
             ref={passwordInputRef}
           />
         </div>
-        <div className={classes.actions}>
+
           <button>Změnit heslo</button>
-        </div>
+
       </form>
     </div>
   );

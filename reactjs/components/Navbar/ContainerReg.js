@@ -17,7 +17,7 @@ return (
         a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Fusce tellus. 
         Integer tempor. Suspendisse nisl.</p>
        
-        <Link href="/reg_modal"><button className={classes.button}>Registrujte se</button>
+        <Link href="/reg_modal"><button>Registrujte se</button>
      
   
   

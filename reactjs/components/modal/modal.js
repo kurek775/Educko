@@ -18,7 +18,7 @@ function Modal(props) {
         Zrušit
       </button>
       {props.zapsan === true && (
-        <button className={classes.button1} onClick={confirmHandler}>
+        <button onClick={confirmHandler}>
           Zapsat se na hodinu
         </button>
       )}

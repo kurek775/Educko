@@ -35,9 +35,9 @@ function Kontaktform(props) {
       <label> Vložením zprávy souhlasíte s podmínkami ochrany osobních údajů</label>
      
 
-      <div className={classes.actions}>
+
         <button>Odeslat</button>
-      </div>
+     
     </form>
 
 

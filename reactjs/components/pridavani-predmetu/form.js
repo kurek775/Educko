@@ -42,9 +42,9 @@ function VytvareniPredmetuForm(props) {
           ></textarea>
         </div>
 
-        <div className={classes.actions}>
+   
           <button>Přidat předmět do databáze</button>
-        </div>
+      
       </form>
     </Card>
   );

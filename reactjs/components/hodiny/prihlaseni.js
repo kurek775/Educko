@@ -112,25 +112,25 @@ function SignInForm(props) {
 
                 {session.user.image === "lector" &&
                   prop.ucitel === session.user.email && (
-                    <div className={classes.actions}>
+           
                       <button onClick={() => zahajitHandler(prop._id)}>
                         Poslat email zakum
                       </button>
-                    </div>
+                    
                   )}
 
                 {session.user.image === "lector" &&
                   prop.ucitel === session.user.email && (
-                    <div className={classes.actions}>
+      
                       <a href="http://meet.google.com/new" target="_blank">
                         <button>Vytvorit hodinu</button>
                       </a>
-                    </div>
+           
                   )}
 
                 {session.user.image === "lector" &&
                   prop.ucitel === session.user.email && (
-                    <div className={classes.actions}>
+             <div className={classes.actions}>
                       <button onClick={() => smazatHodinu(prop._id)}>
                         Smazat hodinu
                       </button>

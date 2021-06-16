@@ -85,9 +85,9 @@ function LectureForm(props) {
           ))}
         </div>
 
-        <div className={classes.actions}>
+   
           <button>Vytvorit hodinu</button>
-        </div>
+        
       </form>
     </Card>
   );

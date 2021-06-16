@@ -42,9 +42,8 @@ function VytvareniLektora(props) {
           />
         </div>
 
-        <div className={classes.actions}>
           <button>Vytvořit účet</button>
-        </div>
+   
       </form>
     </Card>
   );

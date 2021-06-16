@@ -46,9 +46,8 @@ function RegisterForm(props) {
           />
         </div>
 
-        <div className={classes.actions}>
           <button>Vytvořit účet</button>
-        </div>
+      
       </form>
     
   );

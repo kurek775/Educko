@@ -72,9 +72,9 @@ function EditLektorForm(props) {
           ))}
         </div>
 
-        <div className={classes.actions}>
+  
           <button>Uložit změny</button>
-        </div>
+        
       </form>
       <h2>Predmety ktere uci tento lektor</h2>
       {props.predmety.map((pred) => (

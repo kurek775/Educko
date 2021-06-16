@@ -1,8 +1,7 @@
 .info{
     margin: auto;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    background-color: white;
+
+
     padding: 1rem;
     text-align: center;
     width: 80%;
@@ -13,7 +12,48 @@
     margin-bottom: 5%;
     justify-content: center;
 }
+.infouser{
+    margin: auto;
+
+    background-color:white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    text-align: center;
+    width: 80%;
+    max-width: 100%;
+ 
+    z-index: 5;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    justify-content: center;
+}
+.infouser>div>ul>li{
+    text-align: left;
+    font-size: 18px;
+}
+.info>ul{
+    margin-top: 1%;
+    padding: 20px;
+    background-color:white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+
+    
+}
 .info ul li{
     text-align: left;
     font-size: 18px;
+  
+}
+
+
+.blok{
+    width: 100%;
+    background-color: rgb(117, 148, 158);
+    padding: 20px;
+}
+.blok>h2{
+    color: white;
+    text-align: center;
+    font-size: 40px;
 }

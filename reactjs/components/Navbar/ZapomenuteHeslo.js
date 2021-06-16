@@ -21,9 +21,9 @@ function ZapomenuteHeslo(props) {
           <label htmlFor="email">Email</label>
           <input type="text" required id="email" ref={emailInputRef} />
         </div>
-        <div className={classes.actions}>
+     
           <button>Změnit heslo</button>
-        </div>
+  
       </form>
  
   

@@ -45,9 +45,9 @@ function Loginform(props) {
           <ZapomenuteHeslo_link></ZapomenuteHeslo_link>
         </li>
         <li>
-          <div className={classes.actions}>
+        
             <button>Přihlásit</button>
-          </div>
+          
         </li>
       </ul>
     </form>

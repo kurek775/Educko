@@ -9,7 +9,7 @@ function ProfilePage(props) {
   );
   return (
     <div>
-      <div className={classes.info}>
+      <div className={classes.infouser}>
         {props.users.map((u) => (
           <div>
             <ul key={u._id}>
@@ -27,6 +27,7 @@ function ProfilePage(props) {
         ))}
       </div>
       <div>
+        <div className={classes.blok}><h2>Moje hodiny</h2></div>
         <div className={classes.info}>
           {props.reservation.map(
             (u) =>

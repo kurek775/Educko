@@ -15,11 +15,11 @@ function SeznamLektoru({ lectores }) {
           <li key={lector._id} className={classes.modal}>
             <h1>{lector.name}</h1>
             <p>{lector.email}</p>
-            <div className={classes.actions}>
+       
               <Link href={"seznam-lektoru/" + lector._id}>
                 <button>Detail</button>
               </Link>
-            </div>
+    
           </li>
         ))}
       </ul>
