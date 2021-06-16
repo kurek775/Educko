@@ -6,7 +6,6 @@ import moment from "moment";
 import { useRef, useState } from "react";
 require("moment/locale/cs");
 
-
 const localizer = momentLocalizer(moment);
 const date = new Date();
 const endDate = new Date() + 1;
@@ -42,12 +41,26 @@ function MyCalendar(props) {
     setModalIsOpen(false);
   }
 
+  function odhlasitHandler(resID) {
+    const enteredEmail = userEmail;
+    const enteredID = resID;
+
+    const SRData = {
+      email: enteredEmail,
+      id: enteredID,
+    };
+
+    props.onRemoveReservation(SRData);
+    setModalIsOpen(false);
+  }
+
   let events = [];
   let allDay = false;
   props.reservation.map((res) => {
     events.push({
       id: res._id,
       title: res.predmet,
+      jmeno: res.jmeno,
       start: new Date(res.datum),
       end: new Date(res.konec),
       users: res.zapsan,
@@ -74,6 +87,7 @@ function MyCalendar(props) {
               setZapsan(true);
             } else {
               openModalHandler();
+              setID(event.id);
               setZapsan(false);
             }
           }
@@ -97,9 +111,11 @@ function MyCalendar(props) {
       />
       {modalIsOpen && (
         <Modal
-          onCancel={closeModalHandler}
+          onCancel={() => odhlasitHandler(id)}
           onConfirm={() => prihlasitHandler(id)}
           zapsan={zapsan}
+          events={events}
+          id={id}
         />
       )}
       {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}

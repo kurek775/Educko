@@ -27,7 +27,11 @@ function CreateLecture(props) {
   }
   return (
     <div className={classes.modal}>
-      <LectureForm predmet={props.subjects} onAddReserve={addReserveHandler} />
+      <LectureForm
+        predmet={props.subjects}
+        ucitel={props.lectors}
+        onAddReserve={addReserveHandler}
+      />
     </div>
   );
 }
@@ -49,9 +53,16 @@ export async function getServerSideProps(context) {
     .find({})
     .toArray();
 
+  const lectorCollection = await client
+    .db()
+    .collection("Lectores")
+    .find({})
+    .toArray();
+
   return {
     props: {
       subjects: JSON.parse(JSON.stringify(subjectCollection)),
+      lectors: JSON.parse(JSON.stringify(lectorCollection)),
     },
   };
 }

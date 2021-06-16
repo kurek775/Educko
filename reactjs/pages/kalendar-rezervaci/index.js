@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 function Calendar(props) {
   const router = useRouter();
+
   async function sendReservationHandler(enteredReservation) {
     const response = await fetch("/api/reservation/signReserve", {
       method: "PATCH",
@@ -20,11 +21,29 @@ function Calendar(props) {
     }
     router.replace("/kalendar-rezervaci");
   }
+
+  async function removeReservationHandler(enteredReservation) {
+    const response = await fetch("/api/reservation/deleteReservation", {
+      method: "PATCH",
+      body: JSON.stringify(enteredReservation),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      setError(true);
+      return;
+    }
+    router.replace("/kalendar-rezervaci");
+  }
+
   return (
     <MyCalendar
       user={props.user}
       reservation={props.reservation}
       onSignReservation={sendReservationHandler}
+      onRemoveReservation={removeReservationHandler}
     />
   );
 }
