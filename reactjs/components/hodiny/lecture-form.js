@@ -11,6 +11,8 @@ function LectureForm(props) {
   const konecInputRef = useRef();
   const hodinaInputRef = useRef();
   const popisInputRef = useRef();
+  const cenaInputRef = useRef();
+  const kapacitaInputRef = useRef();
   const [selected, setSelected] = useState();
   const addSubject = (predmet) => {
     setSelected(predmet);
@@ -26,6 +28,8 @@ function LectureForm(props) {
     const ucitel = session.user.email;
     const jmeno = ucitelJmeno;
     const barva = ucitelBarva;
+    const kapacita = kapacitaInputRef.current.value;
+    const cena = cenaInputRef.current.value;
 
     // console.log(enteredDatum);
     const RData = {
@@ -37,6 +41,8 @@ function LectureForm(props) {
       ucitel: ucitel,
       barva: barva,
       jmeno: jmeno,
+      cena: cena,
+      kapacita: kapacita,
     };
     props.onAddReserve(RData);
   }
@@ -79,6 +85,16 @@ function LectureForm(props) {
             id="datum-konec"
             ref={konecInputRef}
           />
+        </div>
+
+        <div className={classes.control}>
+          <label htmlFor="hodina">Cena</label>
+          <input type="number" required id="hodina" ref={cenaInputRef} />
+        </div>
+
+        <div className={classes.control}>
+          <label htmlFor="hodina">Kapacita</label>
+          <input type="number" required id="hodina" ref={kapacitaInputRef} />
         </div>
 
         <div className={classes.control}>

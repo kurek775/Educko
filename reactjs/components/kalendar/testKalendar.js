@@ -59,6 +59,8 @@ function MyCalendar(props) {
   props.reservation.map((res) => {
     events.push({
       id: res._id,
+      cena: res.cena,
+      kapacita: res.kapacita,
       title: res.predmet,
       barva: res.barva,
       jmeno: res.jmeno,

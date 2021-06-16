@@ -19,11 +19,20 @@ function Modal(props) {
             <div key={props.id}>
               <p>{e.title}</p>
               <p>{e.jmeno}</p>
+              <p>
+                {e.kapacita} / {e.users.length}
+              </p>
               <p>{e.start.toString()}</p>
             </div>
           )
       )}
-      {props.zapsan === true && <p>Za přihlášení se vám odečte 5 Educkoinů</p>}
+      {props.zapsan === true && (
+        <div>
+          {props.events.map((e) => (
+            <p>Za rezervaci zaplatite {e.cena} Educkoinu</p>
+          ))}
+        </div>
+      )}
 
       {props.zapsan === false && (
         <button className={classes.button} onClick={cancelHandler}>
@@ -32,7 +41,15 @@ function Modal(props) {
       )}
 
       {props.zapsan === true && (
-        <button onClick={confirmHandler}>Zapsat se na hodinu</button>
+        <div>
+          {props.events.map((e) =>
+            e.users.length === e.kapacita ? (
+              <p>Hodina je zaplnena</p>
+            ) : (
+              <button onClick={confirmHandler}>Zapsat se na hodinu</button>
+            )
+          )}
+        </div>
       )}
     </div>
   );

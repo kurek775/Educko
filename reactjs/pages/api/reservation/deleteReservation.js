@@ -19,9 +19,6 @@ async function handler(req, res) {
       $pull: {
         zapsan: { uzivatel: email },
       },
-      $inc: {
-        kapacita: -1,
-      },
     }
   );
   res.status(201).json({

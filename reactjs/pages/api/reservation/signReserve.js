@@ -20,9 +20,6 @@ async function handler(req, res) {
       $push: {
         zapsan: { uzivatel: email, jmeno: name },
       },
-      $inc: {
-        kapacita: 1,
-      },
     }
   );
 
