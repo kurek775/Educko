@@ -5,7 +5,7 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { hodina, datum, popis, predmet, konec, ucitel, jmeno } = data;
+  const { hodina, datum, popis, predmet, konec, ucitel, jmeno, barva } = data;
   if (!predmet || !datum || !popis || !hodina || !konec) {
     res.status(422).json({
       message: "Neplatný vstup - něco ze vstupních dat chybí.",
@@ -23,6 +23,7 @@ async function handler(req, res) {
     konec: konec,
     popis: popis,
     hodina: hodina,
+    barva: barva,
     kapacita: 0,
     zapsan: [],
   });

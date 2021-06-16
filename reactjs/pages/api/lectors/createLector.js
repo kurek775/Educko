@@ -6,7 +6,7 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { email, password, name } = data;
+  const { email, password, name, color } = data;
   if (
     !email ||
     !email.includes("@") ||
@@ -39,6 +39,7 @@ async function handler(req, res) {
     password: hashedPassword,
     name: name,
     role: lektor,
+    barva: color,
     subject: [],
   });
   res.status(201).json({ message: "Lektor byl vytvořen" });

@@ -6,6 +6,7 @@ import { useSession } from "next-auth/client";
 function LectureForm(props) {
   const [session, loading] = useSession();
   let ucitelJmeno;
+  let ucitelBarva;
   const datumInputRef = useRef();
   const konecInputRef = useRef();
   const hodinaInputRef = useRef();
@@ -24,6 +25,7 @@ function LectureForm(props) {
     const eneterPopis = popisInputRef.current.value;
     const ucitel = session.user.email;
     const jmeno = ucitelJmeno;
+    const barva = ucitelBarva;
 
     // console.log(enteredDatum);
     const RData = {
@@ -33,7 +35,8 @@ function LectureForm(props) {
       popis: eneterPopis,
       hodina: enteredHodina,
       ucitel: ucitel,
-      jmeno: ucitelJmeno,
+      barva: barva,
+      jmeno: jmeno,
     };
     props.onAddReserve(RData);
   }
@@ -45,6 +48,7 @@ function LectureForm(props) {
     props.ucitel.map((z) => {
       if (session.user.email === z.email) {
         ucitelJmeno = z.name;
+        ucitelBarva = z.barva;
       }
     });
   }

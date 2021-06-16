@@ -60,6 +60,7 @@ function MyCalendar(props) {
     events.push({
       id: res._id,
       title: res.predmet,
+      barva: res.barva,
       jmeno: res.jmeno,
       start: new Date(res.datum),
       end: new Date(res.konec),
@@ -76,6 +77,14 @@ function MyCalendar(props) {
       <Calendar
         localizer={localizer}
         events={events}
+        eventPropGetter={(event) => {
+          let newStyle = {
+            backgroundColor: event.barva,
+          };
+          return {
+            style: newStyle,
+          };
+        }}
         onSelectEvent={(event) => {
           {
             if (
