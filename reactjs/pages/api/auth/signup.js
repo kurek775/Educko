@@ -6,7 +6,7 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { email, password, name } = data;
+  const { email, password, name, emailZastupce, trida } = data;
   if (
     !email ||
     !email.includes("@") ||
@@ -14,7 +14,10 @@ async function handler(req, res) {
     password.trim().length < 7 ||
     !name ||
     name.trim().length < 4 ||
-    name === "admin"
+    name === "admin" ||
+    !emailZastupce ||
+    !emailZastupce.includes("@") ||
+    !trida
   ) {
     res.status(422).json({
       message: "Neplatný vstup - heslo by mělo mít minimálně 7 znaků",
@@ -33,6 +36,8 @@ async function handler(req, res) {
   const hashedPassword = await hashPassword(password);
   const result = await db.collection("Users").insertOne({
     email: email,
+    emailZastupce: emailZastupce,
+    trida: trida,
     password: hashedPassword,
     name: name,
     role: user,
