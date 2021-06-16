@@ -14,6 +14,7 @@ function MyCalendar(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [id, setID] = useState("");
   const [zapsan, setZapsan] = useState(false);
+  const [castka, setCastka] = useState();
   const [session, loading] = useSession();
   let userEmail = "";
   props.user.map((prop) => (userEmail = prop.email));
@@ -30,11 +31,13 @@ function MyCalendar(props) {
     const enteredEmail = userEmail;
     const enteredID = resID;
     const enteredName = session.user.name;
+    const enteredCena = castka;
 
     const SRData = {
       email: enteredEmail,
       name: enteredName,
       id: enteredID,
+      castka: castka,
     };
 
     props.onSignReservation(SRData);
@@ -48,6 +51,7 @@ function MyCalendar(props) {
     const SRData = {
       email: enteredEmail,
       id: enteredID,
+      castka: castka,
     };
 
     props.onRemoveReservation(SRData);
@@ -95,10 +99,12 @@ function MyCalendar(props) {
             ) {
               openModalHandler();
               setID(event.id);
+              setCastka(event.cena);
               setZapsan(true);
             } else {
               openModalHandler();
               setID(event.id);
+              setCastka(event.cena);
               setZapsan(false);
             }
           }

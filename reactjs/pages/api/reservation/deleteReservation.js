@@ -6,18 +6,28 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { email, id } = data;
+  const { email, id, castka } = data;
   const newId = new ObjectID(id);
 
   const client = await connectToDatabase();
 
   const reservationCollection = await client.db().collection("Reservation");
+  const usersCollection = await client.db().collection("Users");
 
   const result = await reservationCollection.updateOne(
     { _id: newId },
     {
       $pull: {
         zapsan: { uzivatel: email },
+      },
+    }
+  );
+
+  const resultnd = await usersCollection.updateOne(
+    { email: email },
+    {
+      $inc: {
+        penize: castka,
       },
     }
   );

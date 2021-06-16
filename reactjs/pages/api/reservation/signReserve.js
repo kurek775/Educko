@@ -6,7 +6,7 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { email, id, name } = data;
+  const { email, id, name, castka } = data;
   const newId = new ObjectID(id);
 
   const client = await connectToDatabase();
@@ -27,7 +27,7 @@ async function handler(req, res) {
     { email: email },
     {
       $inc: {
-        penize: -5,
+        penize: -castka,
       },
     }
   );
