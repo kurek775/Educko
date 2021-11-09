@@ -3,15 +3,17 @@ import nodemailer from "nodemailer";
 export function sendConfirmationEmail({ email, name, hash }) {
   return new Promise((res, rej) => {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.forpsi.com",
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.GOOGLE_USER,
-        pass: process.env.GOOGLE_PASSWORD,
+        user: process.env.EDUCKO_MAIL,
+        pass: process.env.EDUCKO_PASSWORD,
       },
     });
 
     const message = {
-      from: process.env.GOOGLE_USER,
+      from: process.env.EDUCKO_MAIL,
       to: email,
       subject: "Zmena hesla",
       html: `

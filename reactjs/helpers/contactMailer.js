@@ -3,17 +3,21 @@ import nodemailer from "nodemailer";
 export function sendContactMail({ email, zprava }) {
   return new Promise((res, rej) => {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.GOOGLE_USER,
-        pass: process.env.GOOGLE_PASSWORD,
-      },
+      host: "smtp.forpsi.com",
+      port: 587,
       secure: true,
+      auth: {
+        user: process.env.EDUCKO_MAIL,
+        pass: process.env.EDUCKO_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
 
     const message = {
       from: email,
-      to: process.env.GOOGLE_USER,
+      to: process.env.EDUCKO_MAIL,
       subject: `Zprava od ${email}`,
       html: `
       <p>${zprava}</p>

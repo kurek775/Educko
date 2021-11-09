@@ -28,12 +28,15 @@ async function handler(req, res) {
     client.close();
     return;
   } else if (!user) {
+    console.log("USER NEEXISTUJE");
     res.status(422).json({ message: "Uzivatel  s timto emailem neexistuje" });
     client.close();
   } else if (!lector) {
+    console.log("LEKTOR NEEXISTUJE");
     res.status(422).json({ message: "Lektor  s timto emailem neexistuje" });
     client.close();
   } else {
+    console.log("NIKDO TAKOVEJ NEEXISTUJE");
     res.status(422).json({ message: "Tento email jeste nebyl pouzit" });
     client.close();
   }

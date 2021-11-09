@@ -3,15 +3,20 @@ import nodemailer from "nodemailer";
 export function sendLectureData({ email, name, link }) {
   return new Promise((res, rej) => {
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.forpsi.com",
+      port: 587,
+      secure: true,
       auth: {
-        user: process.env.GOOGLE_USER,
-        pass: process.env.GOOGLE_PASSWORD,
+        user: process.env.EDUCKO_MAIL,
+        pass: process.env.EDUCKO_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: false,
       },
     });
 
     const message = {
-      from: process.env.GOOGLE_USER,
+      from: process.env.EDUCKO_MAIL,
       to: email,
       subject: "Hodina zacina",
       html: `
