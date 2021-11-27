@@ -6,7 +6,7 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { email, id, name, castka } = data;
+  const { email, id, name } = data;
   const newId = new ObjectID(id);
 
   const client = await connectToDatabase();
@@ -23,14 +23,7 @@ async function handler(req, res) {
     }
   );
 
-  const ndResult = await userCollection.updateOne(
-    { email: email },
-    {
-      $inc: {
-        penize: -castka,
-      },
-    }
-  );
+  const ndResult = await userCollection.updateOne({ email: email });
   res.status(201).json({
     message: "Byl jste zapsan k hodine",
     email: email,

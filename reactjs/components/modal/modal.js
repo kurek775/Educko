@@ -1,6 +1,8 @@
+import { session, useSession } from "next-auth/client";
 import classes from "./modal.module.css";
 
 function Modal(props) {
+  const [session, loading] = useSession();
   console.log(props.events);
   function cancelHandler() {
     props.onCancel();
@@ -9,7 +11,7 @@ function Modal(props) {
   function confirmHandler() {
     props.onConfirm();
   }
-  //   console.log(props.events);
+  console.log(props.events);
   return (
     <div className={classes.modal}>
       <h1>{props.zapsan ? "Chcete se přihlásit" : "Jste přihlášen"}</h1>
@@ -26,19 +28,27 @@ function Modal(props) {
             </div>
           )
       )}
-      {props.zapsan === true && (
+      {/* {props.zapsan === true && (
         <div>
           {props.events.map((e) => (
             <p>Za rezervaci zaplatite {e.cena} Educkoinu</p>
           ))}
         </div>
-      )}
+      )} */}
 
-      {props.zapsan === false && (
-        <button className={classes.button} onClick={cancelHandler}>
-          Zrušit
-        </button>
-      )}
+      {props.zapsan === false &&
+        session.user.image !== "lector" &&
+        props.events.map(
+          (e) =>
+            e.id === props.id && (
+              <div>
+                <p>{e.meetURL}</p>
+                <button className={classes.button} onClick={cancelHandler}>
+                  Zrušit
+                </button>
+              </div>
+            )
+        )}
 
       {props.zapsan === true && (
         <div>

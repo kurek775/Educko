@@ -11,6 +11,7 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
     "date-fns": "^2.22.1",
+    "googleapis": "^39.2.0",
     "jose": "^3.12.3",
     "moment": "^2.29.1",
     "mongodb": "^3.6.6",

@@ -15,9 +15,17 @@ async function handler(req, res) {
     jmeno,
     barva,
     kapacita,
-    cena,
+    meetURL,
   } = data;
-  if (!predmet || !datum || !popis || !hodina || !konec || !kapacita || !cena) {
+  if (
+    !predmet ||
+    !datum ||
+    !popis ||
+    !hodina ||
+    !konec ||
+    !kapacita ||
+    !meetURL
+  ) {
     res.status(422).json({
       message: "Neplatný vstup - něco ze vstupních dat chybí.",
     });
@@ -25,6 +33,7 @@ async function handler(req, res) {
   }
   const client = await connectToDatabase();
   const db = client.db();
+
   const result = await db.collection("Reservation").insertOne({
     predmet: predmet,
     ucitel: ucitel,
@@ -34,8 +43,8 @@ async function handler(req, res) {
     popis: popis,
     hodina: hodina,
     barva: barva,
+    meetURL: meetURL,
     kapacita: parseInt(kapacita),
-    cena: parseFloat(cena),
     zapsan: [],
   });
   if (!result) {

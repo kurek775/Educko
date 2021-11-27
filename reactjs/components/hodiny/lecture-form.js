@@ -11,7 +11,7 @@ function LectureForm(props) {
   const konecInputRef = useRef();
   const hodinaInputRef = useRef();
   const popisInputRef = useRef();
-  const cenaInputRef = useRef();
+  const meetURLInputRef = useRef();
   const kapacitaInputRef = useRef();
   const [selected, setSelected] = useState();
   const addSubject = (predmet) => {
@@ -29,7 +29,7 @@ function LectureForm(props) {
     const jmeno = ucitelJmeno;
     const barva = ucitelBarva;
     const kapacita = kapacitaInputRef.current.value;
-    const cena = cenaInputRef.current.value;
+    const meetURL = meetURLInputRef.current.value;
 
     // console.log(enteredDatum);
     const RData = {
@@ -41,7 +41,7 @@ function LectureForm(props) {
       ucitel: ucitel,
       barva: barva,
       jmeno: jmeno,
-      cena: cena,
+      meetURL: meetURL,
       kapacita: kapacita,
     };
     props.onAddReserve(RData);
@@ -88,8 +88,8 @@ function LectureForm(props) {
         </div>
 
         <div className={classes.control}>
-          <label htmlFor="hodina">Cena</label>
-          <input type="number" required id="hodina" ref={cenaInputRef} />
+          <label htmlFor="hodina">Google Meet URL</label>
+          <input type="text" required id="hodina" ref={meetURLInputRef} />
         </div>
 
         <div className={classes.control}>

@@ -1,7 +1,8 @@
-import { getSession, session } from "next-auth/client";
+import { getSession, session, useSession } from "next-auth/client";
 import { connectToDatabase } from "../../helpers/db";
 import classes from "./profile.module.css";
 function ProfilePage(props) {
+  const [session, loading] = useSession();
   console.log(
     props.reservation.map((u) =>
       u.zapsan.some((z) => z.uzivatel === props.email)
@@ -15,40 +16,45 @@ function ProfilePage(props) {
             <ul key={u._id}>
               <li>jméno: {u.name}</li>
               <li>email: {u.email}</li>
-              <li>
+              {/* <li>
                 {" "}
                 stav konta:{" "}
                 {u.penize < 4
                   ? u.penize + " Educkoiny"
                   : u.penize + " Educkoiny"}
-              </li>
+              </li> */}
             </ul>
           </div>
         ))}
       </div>
-      <div>
-        <div className={classes.blok}><h2>Moje hodiny</h2></div>
-        <div className={classes.info}>
-          {props.reservation.map(
-            (u) =>
-              u.zapsan.some((z) => z.uzivatel === props.email) && (
-                <ul key={u._id}>
-                  <li>Nazev hodiny: {u.hodina}</li>
-                  <li>Predmet: {u.predmet}</li>
-                  <li>Popis hodiny: {u.popis}</li>
-                  <li>Datum: {u.datum}</li>
-                </ul>
-              )
-          )}
-          {/* {props.reservation.map((u) =>
+      {session.user.image !== "lector" && (
+        <div>
+          <div className={classes.blok}>
+            <h2>Moje hodiny</h2>
+          </div>
+          <div className={classes.info}>
+            {props.reservation.map(
+              (u) =>
+                u.zapsan.some((z) => z.uzivatel === props.email) && (
+                  <ul key={u._id}>
+                    <li>Nazev hodiny: {u.hodina}</li>
+                    <li>Predmet: {u.predmet}</li>
+                    <li>Popis hodiny: {u.popis}</li>
+                    <li>Datum: {u.datum}</li>
+                    <li>URL Hodiny: {u.meetURL}</li>
+                  </ul>
+                )
+            )}
+            {/* {props.reservation.map((u) =>
             u.zapsan.some((z) => z.uzivatel === props.email)
           ) && (
             <div>
               
             </div>
           )} */}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

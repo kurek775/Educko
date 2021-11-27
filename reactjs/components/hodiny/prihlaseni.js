@@ -77,8 +77,8 @@ function SignInForm(props) {
               <li key={prop._id} className={classes.modal}>
                 <h1>{prop.hodina}</h1>
                 <h3>{prop.predmet}</h3>
-                <h4>{prop.datum}</h4>
-                <h4>{prop.ucitel}</h4>
+                <h4>{new Date(prop.datum).toLocaleDateString()}</h4>
+                {/* <h4>{prop.ucitel}</h4> */}
                 <h5>Seznam zaku</h5>
                 <p>
                   {prop.zapsan.map((z) => (
@@ -86,15 +86,13 @@ function SignInForm(props) {
                   ))}
                 </p>
 
-                <p>
-                  {maximalniKapacita}/{prop.kapacita}
-                </p>
+                <p>Kapacita: {prop.kapacita}</p>
                 <p>{prop.popis}</p>
 
-                {session.user.image === "lector" &&
+                {/* {session.user.image === "lector" &&
                   prop.ucitel === session.user.email && (
                     <input onChange={(event) => setUrl(event.target.value)} />
-                  )}
+                  )} */}
 
                 {session.user.image === "user" && (
                   <div className={classes.actions}>
@@ -110,27 +108,25 @@ function SignInForm(props) {
                   </div>
                 )}
 
-                {session.user.image === "lector" &&
+                {/* {session.user.image === "lector" &&
                   prop.ucitel === session.user.email && (
-           
-                      <button onClick={() => zahajitHandler(prop._id)}>
-                        Poslat email zakum
-                      </button>
-                    
-                  )}
+                    <button onClick={() => zahajitHandler(prop._id)}>
+                      Poslat email zakum
+                    </button>
+                  )} */}
 
-                {session.user.image === "lector" &&
+                {/* {session.user.image === "lector" &&
                   prop.ucitel === session.user.email && (
       
                       <a href="http://meet.google.com/new" target="_blank">
                         <button>Vytvorit hodinu</button>
                       </a>
            
-                  )}
+                  )} */}
 
                 {session.user.image === "lector" &&
                   prop.ucitel === session.user.email && (
-             <div className={classes.actions}>
+                    <div className={classes.actions}>
                       <button onClick={() => smazatHodinu(prop._id)}>
                         Smazat hodinu
                       </button>

@@ -6,7 +6,7 @@ async function handler(req, res) {
     return;
   }
   const data = req.body;
-  const { email, id, castka } = data;
+  const { email, id } = data;
   const newId = new ObjectID(id);
 
   const client = await connectToDatabase();
@@ -23,14 +23,7 @@ async function handler(req, res) {
     }
   );
 
-  const resultnd = await usersCollection.updateOne(
-    { email: email },
-    {
-      $inc: {
-        penize: castka,
-      },
-    }
-  );
+  const resultnd = await usersCollection.updateOne({ email: email });
   res.status(201).json({
     message: "Odhlasil jste se z hodiny",
     email: email,

@@ -14,7 +14,7 @@ function MyCalendar(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [id, setID] = useState("");
   const [zapsan, setZapsan] = useState(false);
-  const [castka, setCastka] = useState();
+  // const [castka, setCastka] = useState();
   const [session, loading] = useSession();
   let userEmail = "";
   props.user.map((prop) => (userEmail = prop.email));
@@ -31,13 +31,13 @@ function MyCalendar(props) {
     const enteredEmail = userEmail;
     const enteredID = resID;
     const enteredName = session.user.name;
-    const enteredCena = castka;
+    // const enteredCena = castka;
 
     const SRData = {
       email: enteredEmail,
       name: enteredName,
       id: enteredID,
-      castka: castka,
+      // castka: castka,
     };
 
     props.onSignReservation(SRData);
@@ -51,7 +51,7 @@ function MyCalendar(props) {
     const SRData = {
       email: enteredEmail,
       id: enteredID,
-      castka: castka,
+      // castka: castka,
     };
 
     props.onRemoveReservation(SRData);
@@ -63,9 +63,10 @@ function MyCalendar(props) {
   props.reservation.map((res) => {
     events.push({
       id: res._id,
-      cena: res.cena,
+      // cena: res.cena,
       kapacita: res.kapacita,
       title: res.predmet,
+      meetURL: res.meetURL,
       barva: res.barva,
       jmeno: res.jmeno,
       start: new Date(res.datum),
@@ -99,12 +100,12 @@ function MyCalendar(props) {
             ) {
               openModalHandler();
               setID(event.id);
-              setCastka(event.cena);
+              // setCastka(event.cena);
               setZapsan(true);
             } else {
               openModalHandler();
               setID(event.id);
-              setCastka(event.cena);
+              // setCastka(event.cena);
               setZapsan(false);
             }
           }

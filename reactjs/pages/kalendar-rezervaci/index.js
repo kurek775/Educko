@@ -66,6 +66,7 @@ export async function getServerSideProps(context) {
       .collection("Reservation")
       .find({})
       .toArray();
+    console.log(JSON.parse(JSON.stringify(reserveCollection)));
     const user = await client
       .db()
       .collection("Users")
@@ -79,5 +80,4 @@ export async function getServerSideProps(context) {
     };
   }
 }
-
 export default Calendar;
